@@ -7772,7 +7772,10 @@ button.bg-dark:focus {
 
 .pb-1,
 .py-1 {
-  padding-bottom: 0.25rem !important;
+  /*padding-bottom: 0.25rem !important;*/
+  padding-top: 1.25rem !important;
+  background-color: #E8AEB7 !important;
+  border-radius: 20px;
 }
 
 .pl-1,
