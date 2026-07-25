@@ -22,7 +22,10 @@ import { courses } from "../data/courses.js";
     <div class="flex flex-col gap-10">
       {
         courses.map((course) => (
-          <article class="flex flex-col gap-8 rounded-2xl border border-border bg-card p-8 shadow-soft transition hover:shadow-lift md:flex-row md:p-10">
+          <article
+            id={course.slug}
+            class="scroll-mt-24 flex flex-col gap-8 rounded-2xl border border-border bg-card p-8 shadow-soft transition hover:shadow-lift md:flex-row md:p-10"
+          >
             <div class="flex-grow space-y-4">
               <div class="flex flex-wrap items-center gap-3">
                 <span class="rounded-full bg-secondary-soft px-3 py-1 text-xs font-bold text-secondary">
@@ -33,7 +36,7 @@ import { courses } from "../data/courses.js";
               <p class="text-body">{course.description}</p>
               <div class="grid grid-cols-1 gap-6 pt-2 sm:grid-cols-2">
                 <div>
-                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-primary">
+                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-secondary">
                     <i class="fa fa-user" /> ¿Para quién es?
                   </h3>
                   <ul class="space-y-1.5 text-sm text-body">
@@ -46,7 +49,7 @@ import { courses } from "../data/courses.js";
                   </ul>
                 </div>
                 <div>
-                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-primary">
+                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-secondary">
                     <i class="fa fa-clipboard-list" /> ¿Qué se trabaja?
                   </h3>
                   <ul class="space-y-1.5 text-sm text-body">

@@ -18,7 +18,7 @@ const links = [
 <nav class="sticky top-0 z-50 w-full border-b border-border/60 bg-surface/80 backdrop-blur-md">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
     <a href="/" class="flex items-center gap-3">
-      <img src="/img/logo.png" alt="Journaling Terapéutico" class="h-10 w-10 rounded-full object-cover" />
+      <img src="/img/logo.png" alt="Journaling Terapéutico" width="256" height="256" class="h-10 w-10 rounded-full object-cover" />
       <span class="font-display text-lg font-semibold text-secondary">Journaling Terapéutico</span>
     </a>
 
@@ -29,7 +29,7 @@ const links = [
             href={link.href}
             class={`pb-1 text-sm font-bold tracking-wide transition-colors duration-200 ${
               link.id === current
-                ? "border-b-2 border-primary text-primary"
+                ? "border-b-2 border-primary text-secondary"
                 : "text-secondary hover:text-primary"
             }`}
           >
@@ -62,7 +62,7 @@ const links = [
         links.map((link) => (
           <a
             href={link.href}
-            class={`text-sm font-bold ${link.id === current ? "text-primary" : "text-secondary"}`}
+            class={`text-sm font-bold text-secondary ${link.id === current ? "underline underline-offset-4" : ""}`}
           >
             {link.label}
           </a>
