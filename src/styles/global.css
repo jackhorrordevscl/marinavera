@@ -46,6 +46,10 @@ h1, h2, h3, h4, h5 {
   color: var(--color-ink);
 }
 
+#agenda {
+  scroll-margin-top: 6rem;
+}
+
 .paper-lines {
   background-image: repeating-linear-gradient(
     transparent,
