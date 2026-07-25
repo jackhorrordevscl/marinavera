@@ -1,8 +1,13 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AgendaForm from "../components/AgendaForm.astro";
 import Icon from "../components/Icon.astro";
 import { courses } from "../data/courses.js";
+import heroImg from "../assets/header.webp";
+import tiktokImg from "../assets/tiktok.webp";
+import rrss2Img from "../assets/rrss2.webp";
+import rrss3Img from "../assets/rrss3.webp";
 
 const testimonials = [
   {
@@ -24,27 +29,21 @@ const testimonials = [
 
 const socialPosts = [
   {
-    image: "/img/tiktok.webp",
-    imageWidth: 691,
-    imageHeight: 724,
+    image: tiktokImg,
     icon: "tiktok",
     title: "30 Días de Journaling",
     text: "Ideas para no agotar tus recursos creativos. Lo importante es disfrutar tu proceso y tu journal.",
     href: "https://www.tiktok.com/@marinna_decolores/photo/7547021458174708997",
   },
   {
-    image: "/img/rrss2.webp",
-    imageWidth: 778,
-    imageHeight: 835,
+    image: rrss2Img,
     icon: "tiktok",
     title: "Todo lo que tienes que saber antes de entrar al journaling",
     text: "Poner en un lugar físico aquello que sentimos mejora de manera considerable nuestra salud mental.",
     href: "https://www.tiktok.com/@marinna_decolores/photo/7542587523487354117",
   },
   {
-    image: "/img/rrss3.webp",
-    imageWidth: 771,
-    imageHeight: 787,
+    image: rrss3Img,
     icon: "tiktok",
     title: "¿Tienes un Vision Board?",
     text: "El journaling es una estrategia de metacognición: observar los propios pensamientos y regular emociones.",
@@ -79,11 +78,10 @@ const socialPosts = [
         </a>
       </div>
       <div class="relative h-80 w-full overflow-hidden rounded-2xl bg-primary-soft shadow-soft md:h-96 md:w-1/2">
-        <img
-          src="/img/header.webp"
+        <Image
+          src={heroImg}
           alt="Ilustración de una persona escribiendo en su diario de journaling"
-          width="1024"
-          height="1024"
+          loading="eager"
           fetchpriority="high"
           class="h-full w-full object-cover"
         />
@@ -109,12 +107,10 @@ const socialPosts = [
           courses.map((course) => (
             <div class="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
               <div class="mb-4 h-48 w-full overflow-hidden rounded-xl bg-primary-soft">
-                <img
+                <Image
                   src={course.cardImage}
                   alt={course.shortTitle}
                   loading="lazy"
-                  width="600"
-                  height="400"
                   class="h-full w-full object-cover"
                 />
               </div>
@@ -164,14 +160,7 @@ const socialPosts = [
         {
           socialPosts.map((post) => (
             <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition hover:-translate-y-1 hover:shadow-lift">
-              <img
-                src={post.image}
-                alt={post.title}
-                loading="lazy"
-                width={post.imageWidth}
-                height={post.imageHeight}
-                class="h-44 w-full object-cover"
-              />
+              <Image src={post.image} alt={post.title} loading="lazy" class="h-44 w-full object-cover" />
               <div class="p-5">
                 <h3 class="mb-2 flex items-center gap-2 text-base font-semibold text-ink">
                   <Icon name={post.icon} class="h-4 w-4 text-primary" />

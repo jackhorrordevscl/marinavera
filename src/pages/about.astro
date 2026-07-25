@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import fotoImg from "../assets/foto2.jpg";
 
 const pillars = [
   {
@@ -47,11 +49,10 @@ const pillars = [
     <section class="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
       <div class="relative md:col-span-5">
         <div class="absolute inset-0 -rotate-3 rounded-2xl bg-primary-soft"></div>
-        <img
-          src="/img/foto2.jpg"
+        <Image
+          src={fotoImg}
           alt="Marina Vera, psicóloga y facilitadora de Journaling Terapéutico"
-          width="1024"
-          height="1536"
+          loading="eager"
           class="relative h-[420px] w-full rounded-2xl object-cover shadow-lift"
         />
       </div>

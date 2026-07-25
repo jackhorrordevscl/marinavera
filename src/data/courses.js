@@ -1,11 +1,14 @@
+import class1 from "../assets/class-1.jpg";
+import class2 from "../assets/class-2.jpg";
+import class3 from "../assets/class-3.jpg";
+
 export const courses = [
   {
     slug: "introduccion",
     badge: "Básico",
     title: "Acompañamiento individual: Introducción al journaling con enfoque psicológico",
     shortTitle: "Introducción al Journaling con enfoque psicológico",
-    image: "/img/curso-1.webp",
-    cardImage: "/img/class-1.jpg",
+    cardImage: class1,
     summary:
       "Aprende los fundamentos, estructura tus primeras sesiones y establece una práctica segura y efectiva.",
     description:
@@ -30,8 +33,7 @@ export const courses = [
     badge: "Profundo",
     title: "Acompañamiento individual: Journaling y Regulación Emocional",
     shortTitle: "Journaling y Regulación Emocional",
-    image: "/img/curso-2.webp",
-    cardImage: "/img/class-2.jpg",
+    cardImage: class2,
     summary:
       "El journaling como herramienta de regulación emocional y autoobservación más consciente.",
     description:
@@ -56,8 +58,7 @@ export const courses = [
     badge: "Específico",
     title: "Acompañamiento individual: Journaling para Ansiedad",
     shortTitle: "Journaling para Ansiedad",
-    image: "/img/curso-3.webp",
-    cardImage: "/img/class-3.jpg",
+    cardImage: class3,
     summary:
       "Acompañamiento de especialización para personas con ansiedad, rumiación o sobrecarga emocional que buscan regularse mediante journaling.",
     description:
