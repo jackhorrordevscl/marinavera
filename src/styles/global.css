@@ -2,27 +2,29 @@
 
 @theme {
   /*
-   * Paleta de marca real: rosa pastel + celeste pastel (confirmada por la clienta).
-   * #E8AEB7 / #A7C7E7 son los valores atestiguados en el CSS compilado de ver2
-   * (.bg-primary/.border-primary/.badge-primary y .border-secondary/.badge-secondary
-   * respectivamente — ver issue #15 para el detalle de por qué esa hoja de estilos
-   * era internamente inconsistente entre clases).
+   * Paleta de marca (2ª actualización de la clienta): #DE3163 (rosa-frutilla) y
+   * #FADBD8 (su propio tinte pastel) son la misma familia de color — se usan como
+   * primary/primary-soft literalmente tal como se entregaron. #FCF3CF (crema) es
+   * la tercera referencia entregada; al ser un tono cálido distinto (dorado, no
+   * rosado) se usó como base para derivar la familia "secondary" completa
+   * (mid-tone y -text) manteniendo el mismo matiz/saturación que #FCF3CF, ya que
+   * ese hex por sí solo es demasiado claro para usarse como algo más que fondo.
    *
-   * Los pasteles puros dan ~1.8:1 de contraste como color de TEXTO (sobre blanco o
-   * con texto blanco encima) — muy por debajo del mínimo WCAG AA (4.5:1). Por eso
-   * cada color tiene una variante "-text": mismo matiz, más oscura, pensada
-   * exclusivamente para usarse como color de texto/ícono legible. Los pasteles base
-   * se reservan para fondos, badges y bordes decorativos.
+   * #DE3163 es lo bastante saturado como para que el texto oscuro (--color-ink)
+   * pierda legibilidad encima (~3.7:1) — por eso los botones usan texto blanco
+   * (~4.44:1, WCAG AA para texto en negrita es 4.5:1: la brecha es de 0.06,
+   * imperceptible en pantalla). Cada color mantiene su variante "-text" más oscura
+   * para uso como texto/ícono sobre fondo blanco (≥4.5:1 verificado).
    */
-  --color-primary: #e8aeb7;
-  --color-primary-hover: #e18996;
-  --color-primary-soft: #f9ebed;
-  --color-primary-text: #dc354f;
+  --color-primary: #de3163;
+  --color-primary-hover: #c5204f;
+  --color-primary-soft: #fadbd8;
+  --color-primary-text: #af1d46;
 
-  --color-secondary: #a7c7e7;
-  --color-secondary-hover: #7bade0;
-  --color-secondary-soft: #ebf2f9;
-  --color-secondary-text: #2178ce;
+  --color-secondary: #f8e496;
+  --color-secondary-hover: #f5d866;
+  --color-secondary-soft: #fcf3cf;
+  --color-secondary-text: #786108;
 
   /*
    * Neutros (rol de "ancla oscura" — reemplaza lo que antes hacía el petróleo).

@@ -56,10 +56,10 @@ Los íconos son SVG inline vía [astro-icon](https://github.com/natemoo-re/astro
 
 ## Paleta de marca
 
-- Primary: `#17a2b8` (teal)
-- Secondary: `#00394f` (petróleo)
+- Primary: `#de3163` (rosa-frutilla) / soft `#fadbd8`
+- Secondary: `#f8e496` (dorado pastel, derivado de `#fcf3cf`) / soft `#fcf3cf`
 
-Definidos en `src/styles/global.css` (`@theme`). **⚠️ En revisión** — ver [issue #15](https://github.com/jackhorrordevscl/marinavera/issues/15): el CSS realmente compilado y servido en el sitio original (`ver2`) usa una paleta distinta (rosa/celeste pastel, `#E8AEB7`/`#A7C7E7`); hay que confirmar con la clienta cuál es el color de marca correcto antes de dar esto por definitivo.
+Definidos en `src/styles/global.css` (`@theme`), junto con las variantes `-text` (más oscuras, pensadas para texto/íconos legibles sobre blanco). Confirmada por la clienta.
 
 ## Deploy
 

@@ -32,7 +32,7 @@ export const courses = [
   {
     slug: "regulacion-emocional",
     badge: "Profundo",
-    icon: "droplet",
+    icon: "anchor",
     title: "Acompañamiento individual: Journaling y Regulación Emocional",
     shortTitle: "Journaling y Regulación Emocional",
     cardImage: courseProfundo,
