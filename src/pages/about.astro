@@ -48,7 +48,7 @@ const pillars: Pillar[] = [
 ---
 
 <BaseLayout
-  title="Acerca de Nosotros | Journaling Terapéutico"
+  title="Sobre Nosotros | Journaling Terapéutico"
   description="Conoce el proyecto de Journaling Terapéutico y cómo la escritura guiada con enfoque psicológico puede acompañarte en tu autoconocimiento y bienestar emocional."
   path="/about.html"
   current="about"
@@ -68,14 +68,15 @@ const pillars: Pillar[] = [
       <div class="space-y-5 md:col-span-7 md:pl-6">
         <h1 class="text-4xl font-bold text-ink md:text-5xl">Un espacio seguro para tu mente.</h1>
         <p class="text-lg leading-relaxed text-body">
-          Hola, soy Marina Vera. Mi enfoque se centra en brindarte herramientas tangibles para navegar tus
-          emociones a través del journaling con enfoque psicológico. Creo firmemente que la escritura y la
-          reflexión estructurada son puentes hacia la calma interior.
+          A veces la mente se llena de pensamientos que no encuentran dónde acomodarse: ideas a medio armar,
+          emociones sin nombre, preguntas que dan vueltas. El journaling terapéutico es un espacio para bajar
+          todo eso al papel, mirarlo con calma y empezar a entender qué te está diciendo.
         </p>
         <p class="text-lg leading-relaxed text-body">
-          Nuestra comunidad combina estructura profesional con la calidez de un acompañamiento cercano,
-          inspirado en la simplicidad de un diario personal. Aquí, cada pensamiento tiene un lugar. No
-          reemplazamos procesos psicoterapéuticos, pero sí complementamos tu bienestar emocional.
+          Acá combinamos estructura profesional con la calidez de un acompañamiento cercano, inspirado en la
+          simplicidad de un diario personal: cada pensamiento tiene un lugar. Guío este proceso desde mi
+          formación como psicóloga — sin reemplazar la psicoterapia, pero sí como un complemento real para tu
+          bienestar emocional.
         </p>
         <Button href="/class.html" variant="outline">Conoce los acompañamientos</Button>
       </div>
@@ -95,16 +96,19 @@ const pillars: Pillar[] = [
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
           pillars.map((pillar, i) => (
-            <Card class="flex h-full flex-col p-6">
+            <Card class="paper-lines relative flex h-full flex-col overflow-hidden p-6">
+              <span class="pointer-events-none absolute -top-4 -right-1 font-display text-7xl font-bold text-ink/5">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <div
-                class={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${
+                class={`relative mb-4 flex h-14 w-14 items-center justify-center rounded-full ${
                   i % 2 === 0 ? "bg-primary-soft" : "bg-secondary-soft"
                 }`}
               >
-                <Icon name={pillar.icon} class={`h-5 w-5 ${i % 2 === 0 ? "text-primary-text" : "text-secondary-text"}`} />
+                <Icon name={pillar.icon} class={`h-6 w-6 ${i % 2 === 0 ? "text-primary-text" : "text-secondary-text"}`} />
               </div>
-              <h3 class="mb-2 text-lg font-semibold text-ink">{pillar.title}</h3>
-              <p class="flex-grow text-sm text-body">{pillar.text}</p>
+              <h3 class="relative mb-2 text-lg font-semibold text-ink">{pillar.title}</h3>
+              <p class="relative flex-grow text-sm text-body">{pillar.text}</p>
             </Card>
           ))
         }
