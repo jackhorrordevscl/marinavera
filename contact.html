@@ -79,7 +79,7 @@
       >
         <h3 class="display-3 font-weight-bold text-white">Contáctenos</h3>
         <div class="d-inline-flex text-white">
-          <p class="m-0"><a class="text-white" href="">Inicio</a></p>
+          <p class="m-0"><a class="text-white" href="index.html">Inicio</a></p>
           <p class="m-0 px-2">/</p>
           <p class="m-0">Contáctenos</p>
         </div>
@@ -100,7 +100,17 @@
           <div class="col-lg-7 mb-5">
             <div class="contact-form">
               <div id="success"></div>
-              <form name="sentMessage" id="contactForm" novalidate="novalidate">
+              <form
+                name="contact"
+                id="contactForm"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p class="d-none">
+                  <label>No llenar si eres humano: <input name="bot-field" /></label>
+                </p>
                 <div class="control-group">
                   <input
                     type="text"
@@ -174,7 +184,7 @@
               ></i>
               <div class="pl-3">
                 <h5>Correo Electrónico</h5>
-                <p>info@example.com</p>
+                <p>lic.ps.marinaverag@gmail.com</p>
               </div>
             </div>
             <div class="d-flex">
@@ -336,12 +346,6 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    
-    
-    <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
