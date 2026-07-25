@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+---
+
+<BaseLayout
+  title="¡Gracias! | Journaling Terapéutico"
+  description="Recibimos tu mensaje. Te contactaremos pronto."
+  path="/gracias.html"
+>
+  <main class="mx-auto flex max-w-2xl flex-col items-center gap-6 px-6 py-24 text-center md:px-10">
+    <Icon name="pen-nib" class="h-12 w-12 text-primary-text" />
+    <h1 class="text-3xl font-bold text-ink md:text-4xl">¡Gracias por escribirnos!</h1>
+    <p class="text-lg text-body">
+      Recibimos tu mensaje y te contactaremos a la brevedad. Si tu consulta es urgente, también podés
+      escribirnos directo por WhatsApp.
+    </p>
+    <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+      <a
+        href="/"
+        class="rounded-full bg-primary px-8 py-3.5 font-bold text-ink shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover"
+      >
+        Volver a Inicio
+      </a>
+      <a
+        href="https://wa.me/56937062554"
+        target="_blank"
+        rel="noopener"
+        class="rounded-full border-2 border-secondary px-8 py-3.5 font-bold text-secondary-text transition hover:-translate-y-0.5 hover:bg-secondary-soft"
+      >
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </main>
+</BaseLayout>

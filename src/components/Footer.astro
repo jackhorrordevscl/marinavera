@@ -1,7 +1,9 @@
 ---
 import Icon from "./Icon.astro";
+import { socials } from "../data/socials.js";
 
 const year = new Date().getFullYear();
+const whatsappHref = "https://wa.me/56937062554?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20acompa%C3%B1amientos%20de%20journaling";
 ---
 
 <footer class="mt-24 rounded-t-3xl bg-ink text-white">
@@ -24,7 +26,7 @@ const year = new Date().getFullYear();
       <a href="mailto:lic.ps.marinaverag@gmail.com" class="flex items-center gap-2 text-sm text-white/80 transition hover:text-primary">
         <Icon name="envelope" class="h-4 w-4" />lic.ps.marinaverag@gmail.com
       </a>
-      <a href="https://wa.me/56937062554" class="flex items-center gap-2 text-sm text-white/80 transition hover:text-primary">
+      <a href={whatsappHref} target="_blank" rel="noopener" class="flex items-center gap-2 text-sm text-white/80 transition hover:text-primary">
         <Icon name="whatsapp" class="h-4 w-4" />+56 9 3706 2554
       </a>
       <p class="flex items-center gap-2 text-sm text-white/80"><Icon name="clock" class="h-4 w-4" />Lunes a Viernes, 10:00 - 17:00</p>
@@ -33,34 +35,19 @@ const year = new Date().getFullYear();
     <div class="space-y-3">
       <h3 class="text-sm font-bold uppercase tracking-wide text-white">Comunidad</h3>
       <div class="flex flex-wrap gap-4">
-        <a
-          href="https://www.instagram.com/psico_marinade_colores"
-          target="_blank"
-          rel="noopener"
-          class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
-          ><Icon name="instagram" class="h-4 w-4" />Instagram</a
-        >
-        <a
-          href="https://www.tiktok.com/@marinna_decolores"
-          target="_blank"
-          rel="noopener"
-          class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
-          ><Icon name="tiktok" class="h-4 w-4" />TikTok</a
-        >
-        <a
-          href="https://www.youtube.com/@Psico_marinadecolores"
-          target="_blank"
-          rel="noopener"
-          class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
-          ><Icon name="youtube" class="h-4 w-4" />YouTube</a
-        >
-        <a
-          href="https://www.facebook.com/people/Marinna-de-Colores/61582718874848/"
-          target="_blank"
-          rel="noopener"
-          class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
-          ><Icon name="facebook-f" class="h-4 w-4" />Facebook</a
-        >
+        {
+          socials.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
+            >
+              <Icon name={social.icon} class="h-4 w-4" />
+              {social.name}
+            </a>
+          ))
+        }
       </div>
       <div class="flex flex-col gap-2 pt-2">
         <a href="/about.html" class="text-sm text-white/60 transition hover:text-primary">Acerca De Nosotros</a>

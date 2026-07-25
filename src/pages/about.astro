@@ -2,9 +2,16 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import type { IconName } from "../components/Icon.astro";
 import fotoImg from "../assets/foto2.jpg";
 
-const pillars = [
+interface Pillar {
+  icon: IconName;
+  title: string;
+  text: string;
+}
+
+const pillars: Pillar[] = [
   {
     icon: "heart",
     title: "Expresión Emocional",

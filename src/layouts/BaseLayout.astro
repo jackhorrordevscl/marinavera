@@ -15,6 +15,30 @@ const { title, description, path, current } = Astro.props;
 const siteUrl = "https://marinavera.netlify.app";
 const canonical = `${siteUrl}${path}`;
 const ogImage = `${siteUrl}/img/og-cover.png`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Journaling Terapéutico",
+  description: "Acompañamiento de journaling con enfoque psicológico guiado por Marina Vera.",
+  url: siteUrl,
+  image: ogImage,
+  email: "lic.ps.marinaverag@gmail.com",
+  telephone: "+56937062554",
+  areaServed: "CL",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "10:00",
+    closes: "17:00",
+  },
+  sameAs: [
+    "https://www.instagram.com/psico_marinade_colores",
+    "https://www.tiktok.com/@marinna_decolores",
+    "https://www.youtube.com/@Psico_marinadecolores",
+    "https://www.facebook.com/people/Marinna-de-Colores/61582718874848/",
+  ],
+};
 ---
 
 <!doctype html>
@@ -54,6 +78,8 @@ const ogImage = `${siteUrl}/img/og-cover.png`;
       href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
 
   <body class="bg-surface text-body antialiased">

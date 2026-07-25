@@ -3,31 +3,23 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AgendaForm from "../components/AgendaForm.astro";
 import Icon from "../components/Icon.astro";
+import type { IconName } from "../components/Icon.astro";
 import { courses } from "../data/courses.js";
+import { testimonials } from "../data/testimonials.js";
 import heroImg from "../assets/hero.webp";
 import tiktokImg from "../assets/tiktok.webp";
 import rrss2Img from "../assets/rrss2.webp";
 import rrss3Img from "../assets/rrss3.webp";
 
-const testimonials = [
-  {
-    quote: "El journaling terapéutico me permitió profundizar en mis procesos emocionales y fortalecer mi autocuidado diario.",
-    name: "María Gonzalez (32)",
-    role: "Psicóloga",
-  },
-  {
-    quote: "Aprendí a entender lo que sentía sin juzgarme. La escritura se volvió un espacio seguro para mí.",
-    name: "Camila Rojas (21)",
-    role: "Estudiante",
-  },
-  {
-    quote: "Los ejercicios me ayudaron a ordenar mis pensamientos y reducir la ansiedad de forma práctica y constante.",
-    name: "Andrés Muñoz (38)",
-    role: "Ing. Comercial",
-  },
-];
+interface SocialPost {
+  image: ImageMetadata;
+  icon: IconName;
+  title: string;
+  text: string;
+  href: string;
+}
 
-const socialPosts = [
+const socialPosts: SocialPost[] = [
   {
     image: tiktokImg,
     icon: "tiktok",

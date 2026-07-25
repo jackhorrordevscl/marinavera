@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import { socials } from "../data/socials.js";
+
+const whatsappHref = "https://wa.me/56937062554?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20acompa%C3%B1amientos%20de%20journaling";
 ---
 
 <BaseLayout
@@ -25,6 +28,7 @@ import Icon from "../components/Icon.astro";
         <form
           name="contact"
           method="POST"
+          action="/gracias.html"
           data-netlify="true"
           netlify-honeypot="bot-field"
           class="space-y-5"
@@ -103,7 +107,7 @@ import Icon from "../components/Icon.astro";
             </p>
           </div>
           <a
-            href="https://wa.me/56937062554"
+            href={whatsappHref}
             target="_blank"
             rel="noopener"
             class="mt-5 flex w-full items-center justify-center gap-2 rounded-full border border-primary/30 bg-card px-5 py-3 text-sm font-bold text-ink transition hover:bg-surface"
@@ -115,34 +119,18 @@ import Icon from "../components/Icon.astro";
         <div class="rounded-2xl border border-border bg-card p-6 shadow-soft">
           <h3 class="mb-4 text-lg font-semibold text-ink">Comunidad</h3>
           <div class="grid grid-cols-2 gap-3">
-            <a
-              href="https://www.instagram.com/psico_marinade_colores"
-              target="_blank"
-              rel="noopener"
-              class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary-text"
-              ><Icon name="instagram" class="h-4 w-4" /> Instagram</a
-            >
-            <a
-              href="https://www.youtube.com/@Psico_marinadecolores"
-              target="_blank"
-              rel="noopener"
-              class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary-text"
-              ><Icon name="youtube" class="h-4 w-4" /> YouTube</a
-            >
-            <a
-              href="https://www.tiktok.com/@marinna_decolores"
-              target="_blank"
-              rel="noopener"
-              class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary-text"
-              ><Icon name="tiktok" class="h-4 w-4" /> TikTok</a
-            >
-            <a
-              href="https://www.facebook.com/people/Marinna-de-Colores/61582718874848/"
-              target="_blank"
-              rel="noopener"
-              class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary-text"
-              ><Icon name="facebook-f" class="h-4 w-4" /> Facebook</a
-            >
+            {
+              socials.map((social) => (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener"
+                  class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary-text"
+                >
+                  <Icon name={social.icon} class="h-4 w-4" /> {social.name}
+                </a>
+              ))
+            }
           </div>
         </div>
       </div>
