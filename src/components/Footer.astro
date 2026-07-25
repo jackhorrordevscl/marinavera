@@ -1,8 +1,12 @@
+---
+import Icon from "./Icon.astro";
+---
+
 <footer class="mt-24 rounded-t-3xl bg-secondary text-white">
   <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-3 md:px-10">
     <div class="space-y-3">
       <a href="/" class="flex items-center gap-2 font-display text-lg font-semibold text-white">
-        <i class="fas fa-pen-nib text-primary"></i>
+        <Icon name="pen-nib" class="h-4 w-4 text-primary" />
         Journaling Terapéutico
       </a>
       <p class="max-w-xs text-sm text-white/75">
@@ -15,13 +19,13 @@
 
     <div class="space-y-3">
       <h3 class="text-sm font-bold uppercase tracking-wide text-white">Contacto</h3>
-      <a href="mailto:lic.ps.marinaverag@gmail.com" class="block text-sm text-white/80 transition hover:text-primary">
-        <i class="fa fa-envelope mr-2"></i>lic.ps.marinaverag@gmail.com
+      <a href="mailto:lic.ps.marinaverag@gmail.com" class="flex items-center gap-2 text-sm text-white/80 transition hover:text-primary">
+        <Icon name="envelope" class="h-4 w-4" />lic.ps.marinaverag@gmail.com
       </a>
-      <a href="https://wa.me/56937062554" class="block text-sm text-white/80 transition hover:text-primary">
-        <i class="fab fa-whatsapp mr-2"></i>+56 9 3706 2554
+      <a href="https://wa.me/56937062554" class="flex items-center gap-2 text-sm text-white/80 transition hover:text-primary">
+        <Icon name="whatsapp" class="h-4 w-4" />+56 9 3706 2554
       </a>
-      <p class="text-sm text-white/80"><i class="far fa-clock mr-2"></i>Lunes a Viernes, 10:00 - 17:00</p>
+      <p class="flex items-center gap-2 text-sm text-white/80"><Icon name="clock" class="h-4 w-4" />Lunes a Viernes, 10:00 - 17:00</p>
     </div>
 
     <div class="space-y-3">
@@ -31,25 +35,29 @@
           href="https://www.instagram.com/psico_marinade_colores"
           target="_blank"
           rel="noopener"
-          class="text-sm text-white/80 transition hover:text-primary"><i class="fab fa-instagram mr-1"></i>Instagram</a
+          class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
+          ><Icon name="instagram" class="h-4 w-4" />Instagram</a
         >
         <a
           href="https://www.tiktok.com/@marinna_decolores"
           target="_blank"
           rel="noopener"
-          class="text-sm text-white/80 transition hover:text-primary"><i class="fab fa-tiktok mr-1"></i>TikTok</a
+          class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
+          ><Icon name="tiktok" class="h-4 w-4" />TikTok</a
         >
         <a
           href="https://www.youtube.com/@Psico_marinadecolores"
           target="_blank"
           rel="noopener"
-          class="text-sm text-white/80 transition hover:text-primary"><i class="fab fa-youtube mr-1"></i>YouTube</a
+          class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
+          ><Icon name="youtube" class="h-4 w-4" />YouTube</a
         >
         <a
           href="https://www.facebook.com/people/Marinna-de-Colores/61582718874848/"
           target="_blank"
           rel="noopener"
-          class="text-sm text-white/80 transition hover:text-primary"><i class="fab fa-facebook-f mr-1"></i>Facebook</a
+          class="flex items-center gap-1.5 text-sm text-white/80 transition hover:text-primary"
+          ><Icon name="facebook-f" class="h-4 w-4" />Facebook</a
         >
       </div>
       <div class="flex flex-col gap-2 pt-2">

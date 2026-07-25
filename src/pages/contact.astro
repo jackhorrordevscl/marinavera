@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
 ---
 
 <BaseLayout
@@ -91,14 +92,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="flex flex-col gap-6 md:col-span-5">
         <div class="rounded-2xl bg-primary-soft p-6 shadow-soft">
           <h3 class="mb-4 flex items-center gap-2 text-lg font-semibold text-secondary">
-            <i class="fa fa-comments text-primary"></i> Contacto Directo
+            <Icon name="comments" class="h-4 w-4 text-primary" /> Contacto Directo
           </h3>
           <div class="space-y-3 text-sm text-body">
             <a href="mailto:lic.ps.marinaverag@gmail.com" class="flex items-center gap-2 transition hover:text-primary">
-              <i class="fa fa-envelope text-primary"></i> lic.ps.marinaverag@gmail.com
+              <Icon name="envelope" class="h-4 w-4 text-primary" /> lic.ps.marinaverag@gmail.com
             </a>
             <p class="flex items-center gap-2">
-              <i class="far fa-clock text-primary"></i> Lunes a Viernes, 10:00 - 17:00
+              <Icon name="clock" class="h-4 w-4 text-primary" /> Lunes a Viernes, 10:00 - 17:00
             </p>
           </div>
           <a
@@ -107,7 +108,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             rel="noopener"
             class="mt-5 flex w-full items-center justify-center gap-2 rounded-full border border-primary/30 bg-card px-5 py-3 text-sm font-bold text-secondary transition hover:bg-surface"
           >
-            <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+            <Icon name="whatsapp" class="h-4 w-4" /> Escribir por WhatsApp
           </a>
         </div>
 
@@ -119,28 +120,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               target="_blank"
               rel="noopener"
               class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary"
-              ><i class="fab fa-instagram"></i> Instagram</a
+              ><Icon name="instagram" class="h-4 w-4" /> Instagram</a
             >
             <a
               href="https://www.youtube.com/@Psico_marinadecolores"
               target="_blank"
               rel="noopener"
               class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary"
-              ><i class="fab fa-youtube"></i> YouTube</a
+              ><Icon name="youtube" class="h-4 w-4" /> YouTube</a
             >
             <a
               href="https://www.tiktok.com/@marinna_decolores"
               target="_blank"
               rel="noopener"
               class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary"
-              ><i class="fab fa-tiktok"></i> TikTok</a
+              ><Icon name="tiktok" class="h-4 w-4" /> TikTok</a
             >
             <a
               href="https://www.facebook.com/people/Marinna-de-Colores/61582718874848/"
               target="_blank"
               rel="noopener"
               class="flex items-center gap-2 rounded-lg p-2 text-sm text-body transition hover:bg-surface hover:text-primary"
-              ><i class="fab fa-facebook-f"></i> Facebook</a
+              ><Icon name="facebook-f" class="h-4 w-4" /> Facebook</a
             >
           </div>
         </div>

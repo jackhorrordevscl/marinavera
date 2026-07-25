@@ -1,34 +1,35 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
 
 const pillars = [
   {
-    icon: "fa-heart",
+    icon: "heart",
     title: "Expresión Emocional",
     text: "Canalizar sentimientos complejos en palabras, dando forma a lo que a menudo se siente inmanejable en la mente.",
   },
   {
-    icon: "fa-compass",
+    icon: "compass",
     title: "Autoconocimiento",
     text: "Explorar patrones de pensamiento y comportamiento para comprender tus motivaciones más profundas.",
   },
   {
-    icon: "fa-tint",
+    icon: "droplet",
     title: "Regulación Emocional",
     text: "Desarrollar anclas y herramientas escritas para volver a tu centro en momentos de sobrecarga.",
   },
   {
-    icon: "fa-cloud",
+    icon: "cloud",
     title: "Manejo de Ansiedad",
     text: "Trabajar los patrones de pensamiento de la ansiedad mediante journaling guiado.",
   },
   {
-    icon: "fa-pen-fancy",
+    icon: "pen-fancy",
     title: "Narrativa y Re-significación",
     text: "Reconstruir tu narrativa personal a través de la escritura consciente.",
   },
   {
-    icon: "fa-puzzle-piece",
+    icon: "puzzle-piece",
     title: "Integración y Síntesis",
     text: "Consolidar los aprendizajes y conectar las experiencias vividas durante el proceso.",
   },
@@ -91,7 +92,7 @@ const pillars = [
           pillars.map((pillar) => (
             <div class="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift">
               <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary-soft">
-                <i class={`fa ${pillar.icon} text-lg text-primary`} />
+                <Icon name={pillar.icon} class="h-5 w-5 text-primary" />
               </div>
               <h3 class="mb-2 text-lg font-semibold text-ink">{pillar.title}</h3>
               <p class="flex-grow text-sm text-body">{pillar.text}</p>

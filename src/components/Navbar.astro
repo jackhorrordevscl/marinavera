@@ -1,4 +1,6 @@
 ---
+import Icon from "./Icon.astro";
+
 interface Props {
   current?: "index" | "about" | "class" | "contact";
 }
@@ -54,7 +56,7 @@ const links = [
       aria-expanded="false"
       class="flex h-10 w-10 items-center justify-center rounded-full text-secondary md:hidden"
     >
-      <i class="fa fa-bars text-xl"></i>
+      <Icon name="bars" class="h-5 w-5" />
     </button>
   </div>
 

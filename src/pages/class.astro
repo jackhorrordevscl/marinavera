@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AgendaForm from "../components/AgendaForm.astro";
+import Icon from "../components/Icon.astro";
 import { courses } from "../data/courses.js";
 ---
 
@@ -37,12 +38,12 @@ import { courses } from "../data/courses.js";
               <div class="grid grid-cols-1 gap-6 pt-2 sm:grid-cols-2">
                 <div>
                   <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-secondary">
-                    <i class="fa fa-user" /> ¿Para quién es?
+                    <Icon name="user" class="h-3.5 w-3.5" /> ¿Para quién es?
                   </h3>
                   <ul class="space-y-1.5 text-sm text-body">
                     {course.audience.map((item) => (
                       <li class="flex gap-2">
-                        <i class="fa fa-check mt-1 text-xs text-success" />
+                        <Icon name="check" class="mt-1 h-3 w-3 text-success" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -50,12 +51,12 @@ import { courses } from "../data/courses.js";
                 </div>
                 <div>
                   <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-secondary">
-                    <i class="fa fa-clipboard-list" /> ¿Qué se trabaja?
+                    <Icon name="clipboard-list" class="h-3.5 w-3.5" /> ¿Qué se trabaja?
                   </h3>
                   <ul class="space-y-1.5 text-sm text-body">
                     {course.topics.map((item) => (
                       <li class="flex gap-2">
-                        <i class="fa fa-check mt-1 text-xs text-success" />
+                        <Icon name="check" class="mt-1 h-3 w-3 text-success" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -68,14 +69,14 @@ import { courses } from "../data/courses.js";
               <div class="space-y-1">
                 <span class="block text-lg font-semibold text-ink">Cupos: 4</span>
                 <span class="flex items-center gap-2 text-sm text-body">
-                  <i class="fa fa-calendar-day text-secondary" />
+                  <Icon name="calendar-day" class="h-4 w-4 text-secondary" />
                   {course.day}
                 </span>
               </div>
               <ul class="space-y-1 text-sm text-body">
                 {course.slots.map((slot) => (
                   <li class="flex items-center gap-2">
-                    <i class="fa fa-clock text-secondary" />
+                    <Icon name="clock" class="h-4 w-4 text-secondary" />
                     {slot}
                   </li>
                 ))}
@@ -92,8 +93,8 @@ import { courses } from "../data/courses.js";
       }
     </div>
 
-    <p class="text-center text-lg font-bold text-secondary">
-      <i class="fa fa-money-bill mr-2"></i>Valor de lanzamiento del Acompañamiento — $25.000
+    <p class="flex items-center justify-center gap-2 text-center text-lg font-bold text-secondary">
+      <Icon name="money-bill" class="h-5 w-5" />Valor de lanzamiento del Acompañamiento — $25.000
     </p>
 
     <AgendaForm courses={courses} />

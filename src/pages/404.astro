@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
 ---
 
 <BaseLayout
@@ -8,7 +9,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   path="/404.html"
 >
   <main class="mx-auto flex max-w-2xl flex-col items-center gap-6 px-6 py-24 text-center md:px-10">
-    <i class="fas fa-pen-nib text-5xl text-primary"></i>
+    <Icon name="pen-nib" class="h-12 w-12 text-primary" />
     <p class="font-display text-6xl font-semibold text-secondary">404</p>
     <h1 class="text-3xl font-bold text-ink">Esta página se perdió entre las hojas del diario</h1>
     <p class="text-lg text-body">
