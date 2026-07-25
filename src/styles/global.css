@@ -41,7 +41,7 @@
 
   /* Tipografía */
   --font-display: "Literata", Georgia, serif;
-  --font-body: "Nunito Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Radios (más generosos que el default de Tailwind, look "papelería") */
   --radius-xl: 1.5rem;
