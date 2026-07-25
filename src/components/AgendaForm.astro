@@ -13,7 +13,7 @@ interface Props {
 const { courses, heading = "Agenda un cupo" } = Astro.props;
 ---
 
-<section id="agenda" class="mx-auto max-w-2xl rounded-2xl bg-primary-soft p-8 shadow-soft md:p-14">
+<section id="agenda" class="paper-lines mx-auto max-w-2xl rounded-2xl bg-primary-soft p-8 shadow-soft md:p-14">
   <h2 class="mb-2 text-center text-2xl font-semibold text-ink md:text-3xl">{heading}</h2>
   <p class="mb-8 text-center text-sm text-body">Completa el formulario y te contactamos para coordinar tu primera sesión.</p>
   <form name="agenda" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="agenda-bot-field" class="space-y-5">
