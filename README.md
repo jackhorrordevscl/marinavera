@@ -6,6 +6,8 @@ Sitio web de Marina Vera — journaling con enfoque psicológico. Landing de 4 p
 
 - **Astro** — genera HTML estático puro (cero JS por defecto). `astro.config.mjs` usa `build.format: "file"` para que las páginas salgan como `about.html`, `class.html`, `contact.html` en vez de subcarpetas.
 - **Tailwind CSS v4** — vía `@tailwindcss/vite`, configurado en `src/styles/global.css` (bloque `@theme`). No usa Bootstrap, jQuery ni ninguna librería del sitio original.
+- **astro-icon** — íconos como SVG inline (`@iconify-json/fa6-solid` / `fa6-brands` / `fa6-regular`), sin cargar la librería completa de Font Awesome desde un CDN. Ver sección "Íconos" más abajo.
+- **astro:assets** — imágenes de contenido optimizadas automáticamente en build. Ver sección "Imágenes".
 - **Netlify Forms** — los 2 formularios del sitio (`contact`, `agenda`) se envían con `data-netlify="true"` + honeypot, sin backend propio ni servicio externo (EmailJS, etc.). Netlify los detecta automáticamente en el HTML generado en cada build.
 - **Sin CMS** — el contenido vive directo en los archivos `.astro` y en `src/data/courses.js`. Nadie edita esto desde un panel; los cambios de contenido son vía código.
 
@@ -25,12 +27,13 @@ npm run preview   # sirve dist/ localmente
 ```
 src/
   layouts/BaseLayout.astro   # <head> compartido (meta/OG/favicon/fuentes), Navbar+Footer
-  components/                # Navbar, Footer, AgendaForm (formulario reutilizado en 2 páginas)
+  components/                # Navbar, Footer, AgendaForm, Icon (wrapper de astro-icon)
   data/courses.js            # fuente única de verdad de los 3 acompañamientos
   pages/                     # index.astro, about.astro, class.astro, contact.astro, 404.astro
   styles/global.css          # paleta + tipografía + tokens de Tailwind (@theme)
+  assets/                    # imágenes de contenido (procesadas por astro:assets)
 public/
-  img/                       # imágenes ya optimizadas (WebP), servidas tal cual
+  img/                       # solo logo.png y og-cover.png (favicon/OG, no pasan por el pipeline)
   js/interactions.js         # JS vanilla (back-to-top, toggle del menú mobile) — sin jQuery
 ```
 
@@ -40,20 +43,23 @@ public/
 
 ## Imágenes
 
-Todas las imágenes en `public/img` ya están optimizadas a mano (WebP, comprimidas). Si se agrega una imagen nueva:
+Hay dos categorías, no se mezclan:
 
-```bash
-npx sharp-cli -i "original.png" -o public/img -f webp -q 82
-```
+- **`src/assets/`** — imágenes que se renderizan dentro de una página (hero, cards de curso, foto de about, posts de redes). Se importan como módulo ES y se renderizan con `<Image />` de `astro:assets`, que optimiza el formato, infiere `width`/`height` automáticamente (evita layout shift) y genera un nombre con hash para cache inmutable. Para agregar una imagen nueva: ponerla en `src/assets/`, importarla (`import miImagen from "../assets/nombre.jpg"`) y pasarla a `<Image src={miImagen} alt="..." />`.
+- **`public/img/`** — solo `logo.png` (favicon + navbar + fuente del OG) y `og-cover.png` (imagen de preview social). Estas necesitan una URL estática simple y no pasan por el pipeline de Astro. No agregar imágenes de contenido acá.
 
-Usar nombres en minúscula sin espacios (`nombre-imagen.webp`), y agregar `width`/`height` reales al `<img>` en el componente (evita layout shift — ver `file` o `sharp-cli` para leer las dimensiones).
+Antes de subir una imagen nueva a `src/assets/`, comprimirla igual (`npx sharp-cli -i original.png -o carpeta -f webp -q 82`) — Astro la va a optimizar más en el build, pero no hace magia si el original pesa 5MB.
 
-## Paleta de marca (fija)
+## Íconos
 
-- Primary (teal): `#17a2b8`
-- Secondary (petróleo): `#00394f`
+Los íconos son SVG inline vía [astro-icon](https://github.com/natemoo-re/astro-icon), no clases de Font Awesome. Para usar uno: `<Icon name="pen-nib" class="h-4 w-4" />` (ver `src/components/Icon.astro`). Si el ícono que necesitás no está en el mapa `iconMap` de ese archivo, hay que agregarlo ahí primero — buscar el nombre real en [Iconify Fa6](https://icon-sets.iconify.design/fa6-solid/) (o `fa6-brands`/`fa6-regular`) y sumarlo al mapa.
 
-Definidos en `src/styles/global.css` (`@theme`). No cambiar estos dos valores sin que lo pida explícitamente quien mantiene la identidad de marca.
+## Paleta de marca
+
+- Primary: `#17a2b8` (teal)
+- Secondary: `#00394f` (petróleo)
+
+Definidos en `src/styles/global.css` (`@theme`). **⚠️ En revisión** — ver [issue #15](https://github.com/jackhorrordevscl/marinavera/issues/15): el CSS realmente compilado y servido en el sitio original (`ver2`) usa una paleta distinta (rosa/celeste pastel, `#E8AEB7`/`#A7C7E7`); hay que confirmar con la clienta cuál es el color de marca correcto antes de dar esto por definitivo.
 
 ## Deploy
 
