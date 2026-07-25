@@ -21,7 +21,7 @@ const links = [
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
     <a href="/" class="flex items-center gap-3">
       <img src="/img/logo.png" alt="" width="256" height="256" class="h-10 w-10 rounded-full object-cover" />
-      <span class="font-display text-lg font-semibold text-secondary">Journaling Terapéutico</span>
+      <span class="font-display text-lg font-semibold text-ink">Journaling Terapéutico</span>
     </a>
 
     <div class="hidden items-center gap-8 md:flex">
@@ -31,8 +31,8 @@ const links = [
             href={link.href}
             class={`pb-1 text-sm font-bold tracking-wide transition-colors duration-200 ${
               link.id === current
-                ? "border-b-2 border-primary text-secondary"
-                : "text-secondary hover:text-primary"
+                ? "border-b-2 border-primary text-ink"
+                : "text-ink hover:text-primary-text"
             }`}
           >
             {link.label}
@@ -43,7 +43,7 @@ const links = [
 
     <a
       href={ctaHref}
-      class="hidden rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover md:inline-block"
+      class="hidden rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-ink shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover md:inline-block"
     >
       Agendar Cita
     </a>
@@ -54,7 +54,7 @@ const links = [
       aria-label="Abrir menú"
       aria-controls="nav-menu"
       aria-expanded="false"
-      class="flex h-10 w-10 items-center justify-center rounded-full text-secondary md:hidden"
+      class="flex h-10 w-10 items-center justify-center rounded-full text-ink md:hidden"
     >
       <Icon name="bars" class="h-5 w-5" />
     </button>
@@ -66,13 +66,13 @@ const links = [
         links.map((link) => (
           <a
             href={link.href}
-            class={`text-sm font-bold text-secondary ${link.id === current ? "underline underline-offset-4" : ""}`}
+            class={`text-sm font-bold text-ink ${link.id === current ? "underline underline-offset-4" : ""}`}
           >
             {link.label}
           </a>
         ))
       }
-      <a href={ctaHref} class="mt-2 rounded-full bg-primary px-6 py-2.5 text-center text-sm font-bold text-white">
+      <a href={ctaHref} class="mt-2 rounded-full bg-primary px-6 py-2.5 text-center text-sm font-bold text-ink">
         Agendar Cita
       </a>
     </div>

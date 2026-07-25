@@ -1,14 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paleta de marca (fija — #17a2b8 / #00394f, NO los tonos M3 generados por Stitch) */
-  --color-primary: #17a2b8;
-  --color-primary-hover: #148aa0;
-  --color-primary-soft: #e3f4f7;
-  --color-secondary: #00394f;
-  --color-secondary-soft: #e5edf1;
+  /*
+   * Paleta de marca real: rosa pastel + celeste pastel (confirmada por la clienta).
+   * #E8AEB7 / #A7C7E7 son los valores atestiguados en el CSS compilado de ver2
+   * (.bg-primary/.border-primary/.badge-primary y .border-secondary/.badge-secondary
+   * respectivamente — ver issue #15 para el detalle de por qué esa hoja de estilos
+   * era internamente inconsistente entre clases).
+   *
+   * Los pasteles puros dan ~1.8:1 de contraste como color de TEXTO (sobre blanco o
+   * con texto blanco encima) — muy por debajo del mínimo WCAG AA (4.5:1). Por eso
+   * cada color tiene una variante "-text": mismo matiz, más oscura, pensada
+   * exclusivamente para usarse como color de texto/ícono legible. Los pasteles base
+   * se reservan para fondos, badges y bordes decorativos.
+   */
+  --color-primary: #e8aeb7;
+  --color-primary-hover: #e18996;
+  --color-primary-soft: #f9ebed;
+  --color-primary-text: #dc354f;
 
-  /* Neutros */
+  --color-secondary: #a7c7e7;
+  --color-secondary-hover: #7bade0;
+  --color-secondary-soft: #ebf2f9;
+  --color-secondary-text: #2178ce;
+
+  /* Neutros (rol de "ancla oscura" — reemplaza lo que antes hacía el petróleo) */
   --color-ink: #151c22;
   --color-body: #3d494c;
   --color-muted: #6d797c;
@@ -26,9 +42,9 @@
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
 
-  /* Sombras suaves tintadas en secondary, look "hoja de papel" */
-  --shadow-soft: 0 4px 20px -2px rgba(0, 57, 79, 0.07), 0 0 3px rgba(0, 57, 79, 0.03);
-  --shadow-lift: 0 16px 32px -8px rgba(0, 57, 79, 0.14), 0 4px 8px rgba(0, 57, 79, 0.06);
+  /* Sombras suaves tintadas en ink, look "hoja de papel" */
+  --shadow-soft: 0 4px 20px -2px rgba(21, 28, 34, 0.07), 0 0 3px rgba(21, 28, 34, 0.03);
+  --shadow-lift: 0 16px 32px -8px rgba(21, 28, 34, 0.14), 0 4px 8px rgba(21, 28, 34, 0.06);
 }
 
 html {
@@ -54,7 +70,7 @@ h1, h2, h3, h4, h5 {
   background-image: repeating-linear-gradient(
     transparent,
     transparent 30px,
-    rgba(0, 57, 79, 0.05) 30px,
-    rgba(0, 57, 79, 0.05) 31px
+    rgba(21, 28, 34, 0.05) 30px,
+    rgba(21, 28, 34, 0.05) 31px
   );
 }

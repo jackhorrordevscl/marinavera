@@ -13,7 +13,7 @@ import { courses } from "../data/courses.js";
 >
   <main class="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16 md:px-10">
     <header class="mx-auto max-w-3xl space-y-4 text-center">
-      <h1 class="text-4xl font-bold text-primary md:text-5xl">Programas de Acompañamiento</h1>
+      <h1 class="text-4xl font-bold text-ink md:text-5xl">Programas de Acompañamiento</h1>
       <p class="text-lg text-body">
         Espacios individuales y seguros donde utilizamos el journaling terapéutico como herramienta principal
         para explorar, comprender y regular tus emociones.
@@ -29,7 +29,7 @@ import { courses } from "../data/courses.js";
           >
             <div class="flex-grow space-y-4">
               <div class="flex flex-wrap items-center gap-3">
-                <span class="rounded-full bg-secondary-soft px-3 py-1 text-xs font-bold text-secondary">
+                <span class="rounded-full bg-secondary-soft px-3 py-1 text-xs font-bold text-secondary-text">
                   {course.badge}
                 </span>
                 <h2 class="text-2xl font-semibold text-ink">{course.title}</h2>
@@ -37,7 +37,7 @@ import { courses } from "../data/courses.js";
               <p class="text-body">{course.description}</p>
               <div class="grid grid-cols-1 gap-6 pt-2 sm:grid-cols-2">
                 <div>
-                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-secondary">
+                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-secondary-text">
                     <Icon name="user" class="h-3.5 w-3.5" /> ¿Para quién es?
                   </h3>
                   <ul class="space-y-1.5 text-sm text-body">
@@ -50,7 +50,7 @@ import { courses } from "../data/courses.js";
                   </ul>
                 </div>
                 <div>
-                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-secondary">
+                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-secondary-text">
                     <Icon name="clipboard-list" class="h-3.5 w-3.5" /> ¿Qué se trabaja?
                   </h3>
                   <ul class="space-y-1.5 text-sm text-body">
@@ -69,21 +69,21 @@ import { courses } from "../data/courses.js";
               <div class="space-y-1">
                 <span class="block text-lg font-semibold text-ink">Cupos: 4</span>
                 <span class="flex items-center gap-2 text-sm text-body">
-                  <Icon name="calendar-day" class="h-4 w-4 text-secondary" />
+                  <Icon name="calendar-day" class="h-4 w-4 text-secondary-text" />
                   {course.day}
                 </span>
               </div>
               <ul class="space-y-1 text-sm text-body">
                 {course.slots.map((slot) => (
                   <li class="flex items-center gap-2">
-                    <Icon name="clock" class="h-4 w-4 text-secondary" />
+                    <Icon name="clock" class="h-4 w-4 text-secondary-text" />
                     {slot}
                   </li>
                 ))}
               </ul>
               <a
                 href="#agenda"
-                class="mt-auto w-full rounded-full bg-primary py-3 text-center text-sm font-bold text-white transition hover:bg-primary-hover"
+                class="mt-auto w-full rounded-full bg-primary py-3 text-center text-sm font-bold text-ink transition hover:bg-primary-hover"
               >
                 Agendar este programa
               </a>
@@ -93,7 +93,7 @@ import { courses } from "../data/courses.js";
       }
     </div>
 
-    <p class="flex items-center justify-center gap-2 text-center text-lg font-bold text-secondary">
+    <p class="flex items-center justify-center gap-2 text-center text-lg font-bold text-ink">
       <Icon name="money-bill" class="h-5 w-5" />Valor de lanzamiento del Acompañamiento — $25.000
     </p>
 
