@@ -11,14 +11,14 @@ interface Props {
   current?: "index" | "about" | "class" | "contact";
 }
 
-const { title, description, path, current = "index" } = Astro.props;
+const { title, description, path, current } = Astro.props;
 const siteUrl = "https://marinavera.netlify.app";
 const canonical = `${siteUrl}${path}`;
 const ogImage = `${siteUrl}/img/og-cover.png`;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
@@ -44,6 +44,8 @@ const ogImage = `${siteUrl}/img/og-cover.png`;
 
     <!-- Favicon -->
     <link href="/img/logo.png" rel="icon" type="image/png" />
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <meta name="theme-color" content="#17a2b8" />
 
     <!-- Fuentes web -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

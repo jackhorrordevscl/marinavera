@@ -5,7 +5,7 @@ interface Props {
   current?: "index" | "about" | "class" | "contact";
 }
 
-const { current = "index" } = Astro.props;
+const { current } = Astro.props;
 
 const ctaHref = current === "index" || current === "class" ? "#agenda" : "/class.html#agenda";
 
@@ -20,7 +20,7 @@ const links = [
 <nav class="sticky top-0 z-50 w-full border-b border-border/60 bg-surface/80 backdrop-blur-md">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
     <a href="/" class="flex items-center gap-3">
-      <img src="/img/logo.png" alt="Journaling Terapéutico" width="256" height="256" class="h-10 w-10 rounded-full object-cover" />
+      <img src="/img/logo.png" alt="" width="256" height="256" class="h-10 w-10 rounded-full object-cover" />
       <span class="font-display text-lg font-semibold text-secondary">Journaling Terapéutico</span>
     </a>
 

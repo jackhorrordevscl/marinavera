@@ -24,7 +24,6 @@ import Icon from "../components/Icon.astro";
         <h2 class="mb-6 text-2xl font-semibold text-primary">Déjame un mensaje</h2>
         <form
           name="contact"
-          id="contactForm"
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
@@ -40,6 +39,7 @@ import Icon from "../components/Icon.astro";
               id="name"
               name="name"
               type="text"
+              autocomplete="name"
               placeholder="Tu nombre"
               required
               class="w-full rounded-2xl border border-border bg-surface px-5 py-3.5 text-ink transition focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
@@ -51,6 +51,7 @@ import Icon from "../components/Icon.astro";
               id="email"
               name="email"
               type="email"
+              autocomplete="email"
               placeholder="tu@email.com"
               required
               class="w-full rounded-2xl border border-border bg-surface px-5 py-3.5 text-ink transition focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
@@ -80,7 +81,6 @@ import Icon from "../components/Icon.astro";
           </div>
           <button
             type="submit"
-            id="sendMessageButton"
             class="rounded-full bg-primary px-8 py-3.5 font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover"
           >
             Enviar mensaje

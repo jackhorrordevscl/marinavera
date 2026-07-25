@@ -1,5 +1,7 @@
 ---
 import Icon from "./Icon.astro";
+
+const year = new Date().getFullYear();
 ---
 
 <footer class="mt-24 rounded-t-3xl bg-secondary text-white">
@@ -14,7 +16,7 @@ import Icon from "./Icon.astro";
         ni el tratamiento con profesionales de la salud mental. Si experimentas malestar intenso o sostenido,
         es recomendable buscar atención psicológica especializada.
       </p>
-      <p class="pt-2 text-xs text-white/70">© 2026 Journaling Terapéutico. Todos los derechos reservados.</p>
+      <p class="pt-2 text-xs text-white/70">© {year} Journaling Terapéutico. Todos los derechos reservados.</p>
     </div>
 
     <div class="space-y-3">
