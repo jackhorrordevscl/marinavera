@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import Button from "../components/Button.astro";
 ---
 
 <BaseLayout
@@ -16,18 +17,8 @@ import Icon from "../components/Icon.astro";
       No encontramos lo que buscabas. Puede que el link esté roto o que la página se haya movido.
     </p>
     <div class="mt-4 flex flex-col gap-3 sm:flex-row">
-      <a
-        href="/"
-        class="rounded-full bg-primary px-8 py-3.5 font-bold text-ink shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover"
-      >
-        Volver a Inicio
-      </a>
-      <a
-        href="/contact.html"
-        class="rounded-full border-2 border-secondary px-8 py-3.5 font-bold text-secondary-text transition hover:-translate-y-0.5 hover:bg-secondary-soft"
-      >
-        Contáctanos
-      </a>
+      <Button href="/">Volver a Inicio</Button>
+      <Button href="/contact.html" variant="outline">Contáctanos</Button>
     </div>
   </main>
 </BaseLayout>

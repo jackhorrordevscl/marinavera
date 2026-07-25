@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import Button from "./Button.astro";
 
 interface Props {
   current?: "index" | "about" | "class" | "contact";
@@ -41,12 +42,7 @@ const links = [
       }
     </div>
 
-    <a
-      href={ctaHref}
-      class="hidden rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-ink shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover md:inline-block"
-    >
-      Agendar Cita
-    </a>
+    <Button href={ctaHref} size="md" class="hidden md:inline-flex">Agendar Cita</Button>
 
     <button
       id="nav-toggle"
@@ -72,9 +68,7 @@ const links = [
           </a>
         ))
       }
-      <a href={ctaHref} class="mt-2 rounded-full bg-primary px-6 py-2.5 text-center text-sm font-bold text-ink">
-        Agendar Cita
-      </a>
+      <Button href={ctaHref} size="md" fullWidth class="mt-2">Agendar Cita</Button>
     </div>
   </div>
 </nav>

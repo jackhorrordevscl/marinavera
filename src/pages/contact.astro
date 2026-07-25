@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import Button from "../components/Button.astro";
 import { socials } from "../data/socials.js";
 
 const whatsappHref = "https://wa.me/56937062554?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20acompa%C3%B1amientos%20de%20journaling";
@@ -83,12 +84,7 @@ const whatsappHref = "https://wa.me/56937062554?text=Hola%2C%20quiero%20saber%20
               class="w-full resize-none rounded-2xl border border-border bg-surface px-5 py-3.5 text-ink transition focus:border-primary-text focus:outline-none focus:ring-1 focus:ring-primary-text"
             ></textarea>
           </div>
-          <button
-            type="submit"
-            class="rounded-full bg-primary px-8 py-3.5 font-bold text-ink shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover"
-          >
-            Enviar mensaje
-          </button>
+          <Button type="submit">Enviar mensaje</Button>
         </form>
       </div>
 

@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AgendaForm from "../components/AgendaForm.astro";
 import Icon from "../components/Icon.astro";
+import Button from "../components/Button.astro";
 import { courses } from "../data/courses.js";
 ---
 
@@ -81,12 +82,9 @@ import { courses } from "../data/courses.js";
                   </li>
                 ))}
               </ul>
-              <a
-                href="#agenda"
-                class="mt-auto w-full rounded-full bg-primary py-3 text-center text-sm font-bold text-ink transition hover:bg-primary-hover"
-              >
+              <Button href="#agenda" size="md" fullWidth class="mt-auto">
                 Agendar este programa
-              </a>
+              </Button>
             </div>
           </article>
         ))

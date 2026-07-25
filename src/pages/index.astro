@@ -4,6 +4,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import AgendaForm from "../components/AgendaForm.astro";
 import Icon from "../components/Icon.astro";
 import type { IconName } from "../components/Icon.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
 import { courses } from "../data/courses.js";
 import { testimonials } from "../data/testimonials.js";
 import heroImg from "../assets/hero.webp";
@@ -70,12 +72,7 @@ const socialPosts: SocialPost[] = [
           Un espacio para detenerte, escucharte y ordenar lo que sientes, a través de la escritura guiada con
           base en evidencia psicológica.
         </p>
-        <a
-          href="#agenda"
-          class="mt-2 rounded-full bg-primary px-8 py-3.5 font-bold text-ink shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover"
-        >
-          Agenda tu cupo
-        </a>
+        <Button href="#agenda" class="mt-2">Agenda tu cupo</Button>
       </div>
     </div>
   </section>
@@ -98,7 +95,7 @@ const socialPosts: SocialPost[] = [
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
         {
           courses.map((course) => (
-            <div class="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <Card class="flex h-full flex-col p-6">
               <div class="mb-4 h-48 w-full overflow-hidden rounded-xl bg-primary-soft">
                 <Image
                   src={course.cardImage}
@@ -114,11 +111,11 @@ const socialPosts: SocialPost[] = [
               <p class="mb-4 flex-grow text-sm text-body">{course.summary}</p>
               <a
                 href={`/class.html#${course.slug}`}
-                class="flex items-center gap-1 text-sm font-bold text-secondary-text underline underline-offset-2"
+                class="group flex items-center gap-1 text-sm font-bold text-secondary-text underline underline-offset-2"
               >
-                Ver más <Icon name="arrow-right" class="h-3 w-3" />
+                Ver más <Icon name="arrow-right" class="h-3 w-3 transition-transform group-hover:translate-x-1" />
               </a>
-            </div>
+            </Card>
           ))
         }
       </div>
@@ -154,7 +151,7 @@ const socialPosts: SocialPost[] = [
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
         {
           socialPosts.map((post) => (
-            <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition hover:-translate-y-1 hover:shadow-lift">
+            <Card class="overflow-hidden">
               <Image src={post.image} alt={post.title} loading="lazy" class="h-44 w-full object-cover" />
               <div class="p-5">
                 <h3 class="mb-2 flex items-center gap-2 text-base font-semibold text-ink">
@@ -162,16 +159,11 @@ const socialPosts: SocialPost[] = [
                   {post.title}
                 </h3>
                 <p class="mb-4 text-sm text-body">{post.text}</p>
-                <a
-                  href={post.href}
-                  target="_blank"
-                  rel="noopener"
-                  class="inline-block rounded-full bg-primary px-5 py-2 text-sm font-bold text-ink transition hover:bg-primary-hover"
-                >
+                <Button href={post.href} target="_blank" rel="noopener" size="sm">
                   Visitar
-                </a>
+                </Button>
               </div>
-            </div>
+            </Card>
           ))
         }
       </div>
