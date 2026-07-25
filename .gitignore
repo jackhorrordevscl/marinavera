@@ -4,3 +4,7 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Local tooling config / design reference material (no forma parte del sitio)
+.atl/
+/stitch export/
