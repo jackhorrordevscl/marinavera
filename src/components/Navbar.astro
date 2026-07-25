@@ -8,34 +8,67 @@ const { current = "index" } = Astro.props;
 const links = [
   { id: "index", href: "/", label: "Inicio" },
   { id: "about", href: "/about.html", label: "Acerca De Nosotros" },
-  { id: "class", href: "/class.html", label: "Acompañamiento Personalizado" },
+  { id: "class", href: "/class.html", label: "Acompañamientos" },
   { id: "contact", href: "/contact.html", label: "Contáctenos" },
 ];
 ---
 
-<div class="container-fluid bg-light position-relative shadow">
-  <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
-    <a href="/" class="navbar-brand text-secondary" style="font-size: x-large">
-      <i class="fas fa-pen-nib brand-icon"></i>
-      <span class="text-primary">Journaling Terapéutico</span>
+<nav class="sticky top-0 z-50 w-full border-b border-border/60 bg-surface/80 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/img/logo.png" alt="Journaling Terapéutico" class="h-10 w-10 rounded-full object-cover" />
+      <span class="font-display text-lg font-semibold text-secondary">Journaling Terapéutico</span>
     </a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-      <div class="navbar-nav font-weight-bold mx-auto py-0">
-        {
-          links.map((link) => (
-            <a
-              href={link.href}
-              class={`nav-item nav-link ${link.id === current ? "active" : ""}`}
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </div>
-      <a href="/class.html" class="btn btn-primary px-4">Explora los Acompañamientos</a>
+
+    <div class="hidden items-center gap-8 md:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class={`pb-1 text-sm font-bold tracking-wide transition-colors duration-200 ${
+              link.id === current
+                ? "border-b-2 border-primary text-primary"
+                : "text-secondary hover:text-primary"
+            }`}
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </div>
-  </nav>
-</div>
+
+    <a
+      href="/class.html"
+      class="hidden rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover md:inline-block"
+    >
+      Agendar Cita
+    </a>
+
+    <button
+      id="nav-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      class="flex h-10 w-10 items-center justify-center rounded-full text-secondary md:hidden"
+    >
+      <i class="fa fa-bars text-xl"></i>
+    </button>
+  </div>
+
+  <div id="nav-menu" class="hidden border-t border-border/60 px-6 py-4 md:hidden">
+    <div class="flex flex-col gap-4">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class={`text-sm font-bold ${link.id === current ? "text-primary" : "text-secondary"}`}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a href="/class.html" class="mt-2 rounded-full bg-primary px-6 py-2.5 text-center text-sm font-bold text-white">
+        Agendar Cita
+      </a>
+    </div>
+  </div>
+</nav>

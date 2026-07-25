@@ -5,68 +5,59 @@ interface Course {
 
 interface Props {
   courses: Course[];
+  heading?: string;
 }
 
-const { courses } = Astro.props;
+const { courses, heading = "Agenda un cupo" } = Astro.props;
 ---
 
-<div class="container-fluid py-5">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-7 mb-5 mb-lg-0">
-        <p class="section-title pr-5"><span class="pr-2">Agenda un cupo</span></p>
-        <h2 class="mb-4">Un espacio seguro para compartir, aprender y crecer</h2>
-        <p style="text-align: justify;">
-          Nuestra comunidad está pensada para acompañar y sostener tu práctica de journaling en el tiempo.
-          A través de nuestro club de journaling, podrás participar en encuentros mensuales y cursos sincrónicos
-          diseñados para ofrecer orientación, motivación y continuidad en una práctica consciente y significativa.
-        </p>
-        <p>El espacio incluye:</p>
-        <ul class="list-inline m-0" style="text-align: justify;">
-          <li class="py-2">
-            <i class="fa fa-check text-success mr-3"></i>Grupo privado de acompañamiento, para compartir y sostener el proceso.
-          </li>
-          <li class="py-2">
-            <i class="fa fa-check text-success mr-3"></i>Encuentros mensuales (presenciales y virtuales) de nuestro club de journaling.
-          </li>
-          <li class="py-2">
-            <i class="fa fa-check text-success mr-3"></i>Cursos y espacios en vivo, con propuestas guiadas.
-          </li>
-          <li class="py-2">
-            <i class="fa fa-check text-success mr-3"></i>Material exclusivo para miembros: escritura, scrapbooking, papelería digital y más.
-          </li>
-        </ul>
-      </div>
-      <div class="col-lg-5">
-        <div class="card border-0">
-          <div class="card-header bg-secondary text-center p-4">
-            <h2 class="text-white m-0">Agenda un cupo</h2>
-          </div>
-          <div class="card-body rounded-bottom bg-primary p-5">
-            <form name="agenda" method="POST" data-netlify="true" netlify-honeypot="agenda-bot-field">
-              <input type="hidden" name="form-name" value="agenda" />
-              <p class="d-none">
-                <label>No llenar si eres humano: <input name="agenda-bot-field" /></label>
-              </p>
-              <div class="form-group">
-                <input type="text" name="name" class="form-control border-0 p-4" placeholder="Tu Nombre" required />
-              </div>
-              <div class="form-group">
-                <input type="email" name="email" class="form-control border-0 p-4" placeholder="Tu Correo" required />
-              </div>
-              <div class="form-group">
-                <select name="acompanamiento" class="custom-select border-0 px-4" style="height: 47px;" required>
-                  <option value="" selected disabled>Elija el Acompañamiento</option>
-                  {courses.map((course) => <option value={course.title}>{course.title}</option>)}
-                </select>
-              </div>
-              <div>
-                <button class="btn btn-secondary btn-block border-0 py-3" type="submit">Agenda Ya!</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+<section id="agenda" class="mx-auto max-w-2xl rounded-2xl bg-primary-soft p-8 shadow-soft md:p-14">
+  <h2 class="mb-2 text-center text-2xl font-semibold text-secondary md:text-3xl">{heading}</h2>
+  <p class="mb-8 text-center text-sm text-body">Completa el formulario y te contactamos para coordinar tu primera sesión.</p>
+  <form name="agenda" method="POST" data-netlify="true" netlify-honeypot="agenda-bot-field" class="space-y-5">
+    <input type="hidden" name="form-name" value="agenda" />
+    <p class="hidden">
+      <label>No llenar si eres humano: <input name="agenda-bot-field" /></label>
+    </p>
+    <div>
+      <label class="mb-1.5 block text-sm font-bold text-secondary" for="agenda-name">Nombre completo</label>
+      <input
+        id="agenda-name"
+        type="text"
+        name="name"
+        placeholder="Tu nombre"
+        required
+        class="w-full rounded-2xl border border-border bg-card px-5 py-3.5 text-ink transition focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+      />
     </div>
-  </div>
-</div>
+    <div>
+      <label class="mb-1.5 block text-sm font-bold text-secondary" for="agenda-email">Correo electrónico</label>
+      <input
+        id="agenda-email"
+        type="email"
+        name="email"
+        placeholder="tu@email.com"
+        required
+        class="w-full rounded-2xl border border-border bg-card px-5 py-3.5 text-ink transition focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+      />
+    </div>
+    <div>
+      <label class="mb-1.5 block text-sm font-bold text-secondary" for="agenda-course">Programa de interés</label>
+      <select
+        id="agenda-course"
+        name="acompanamiento"
+        required
+        class="w-full rounded-2xl border border-border bg-card px-5 py-3.5 text-ink transition focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+      >
+        <option value="" selected disabled>Elige el acompañamiento</option>
+        {courses.map((course) => <option value={course.title}>{course.title}</option>)}
+      </select>
+    </div>
+    <button
+      type="submit"
+      class="w-full rounded-full bg-primary py-3.5 font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-primary-hover"
+    >
+      Agenda Ya!
+    </button>
+  </form>
+</section>

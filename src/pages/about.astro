@@ -1,37 +1,36 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PageHeader from "../components/PageHeader.astro";
 
-const activities = [
+const pillars = [
   {
-    icon: "flaticon-032-book",
-    title: "Actividades de Expresión Emocional",
-    text: "Permitir la descarga emocional y la toma de conciencia afectiva.",
+    icon: "fa-heart",
+    title: "Expresión Emocional",
+    text: "Canalizar sentimientos complejos en palabras, dando forma a lo que a menudo se siente inmanejable en la mente.",
   },
   {
-    icon: "flaticon-022-drum",
-    title: "Autoconocimiento y Exploración Interna",
-    text: "Aumentar el insight y la comprensión de patrones internos.",
+    icon: "fa-compass",
+    title: "Autoconocimiento",
+    text: "Explorar patrones de pensamiento y comportamiento para comprender tus motivaciones más profundas.",
   },
   {
-    icon: "flaticon-030-crayons",
-    title: "Actividades de Regulación Emocional",
-    text: "Estabilizar los estados emocionales y disminuir su activación.",
+    icon: "fa-tint",
+    title: "Regulación Emocional",
+    text: "Desarrollar anclas y herramientas escritas para volver a tu centro en momentos de sobrecarga.",
   },
   {
-    icon: "flaticon-024-shape-toy",
+    icon: "fa-cloud",
     title: "Manejo de Ansiedad",
     text: "Trabajar los patrones de pensamiento de la ansiedad mediante journaling guiado.",
   },
   {
-    icon: "flaticon-019-pencil",
+    icon: "fa-pen-fancy",
     title: "Narrativa y Re-significación",
-    text: "Reconstruir la narrativa personal.",
+    text: "Reconstruir tu narrativa personal a través de la escritura consciente.",
   },
   {
-    icon: "flaticon-004-balloons",
+    icon: "fa-puzzle-piece",
     title: "Integración y Síntesis",
-    text: "Consolidar los aprendizajes y conectar las experiencias.",
+    text: "Consolidar los aprendizajes y conectar las experiencias vividas durante el proceso.",
   },
 ];
 ---
@@ -42,64 +41,63 @@ const activities = [
   path="/about.html"
   current="about"
 >
-  <PageHeader title="Acerca de Nosotros" current="Acerca de Nosotros" />
-
-  <!-- SOBRE EL PROYECTO -->
-  <div class="container-fluid py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5">
-          <img
-            class="img-fluid rounded mb-5 mb-lg-0"
-            src="/img/foto2.jpg"
-            alt="Marina Vera, psicóloga y facilitadora de Journaling Terapéutico"
-            loading="lazy"
-          />
-        </div>
-        <div class="col-lg-7" style="text-align: justify;">
-          <p class="section-title pr-5"><span class="pr-2">Sobre el Proyecto</span></p>
-          <h2 class="mb-4">Un enfoque profesional y humano para tu bienestar emocional</h2>
-          <p>
-            Nuestra comunidad está pensada para ofrecer acompañamiento y continuidad en la práctica de journaling.
-          </p>
-          <p>
-            A través de encuentros grupales mensuales, espacios compartidos y propuestas guiadas, podrás sostener
-            una práctica consciente, acompañada y significativa, respetando tus propios ritmos.
-          </p>
-          <p>
-            Creemos en el crecimiento personal consciente, sin promesas rápidas, y en el poder de la escritura
-            como herramienta de comprensión y transformación personal.
-          </p>
-          <a href="/class.html" class="btn btn-primary mt-2 py-2 px-4">Conozca Más</a>
-        </div>
+  <main class="mx-auto flex max-w-6xl flex-col gap-20 px-6 py-16 md:px-10">
+    <!-- PRESENTACIÓN -->
+    <section class="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
+      <div class="relative md:col-span-5">
+        <div class="absolute inset-0 -rotate-3 rounded-2xl bg-primary-soft"></div>
+        <img
+          src="/img/foto2.jpg"
+          alt="Marina Vera, psicóloga y facilitadora de Journaling Terapéutico"
+          loading="lazy"
+          class="relative h-[420px] w-full rounded-2xl object-cover shadow-lift"
+        />
       </div>
-    </div>
-  </div>
-
-  <!-- ACTIVIDADES -->
-  <div class="container-fluid pt-5">
-    <div class="container">
-      <div class="text-center pb-2">
-        <p class="section-title px-5"><span class="px-2">Actividades</span></p>
-        <h2 class="mb-4">Descubre nuestro Programa</h2>
+      <div class="space-y-5 md:col-span-7 md:pl-6">
+        <h1 class="text-4xl font-bold text-primary md:text-5xl">Un espacio seguro para tu mente.</h1>
+        <p class="text-lg leading-relaxed text-body">
+          Hola, soy Marina Vera. Mi enfoque se centra en brindarte herramientas tangibles para navegar tus
+          emociones a través del journaling con enfoque psicológico. Creo firmemente que la escritura y la
+          reflexión estructurada son puentes hacia la calma interior.
+        </p>
+        <p class="text-lg leading-relaxed text-body">
+          Nuestra comunidad combina estructura profesional con la calidez de un acompañamiento cercano,
+          inspirado en la simplicidad de un diario personal. Aquí, cada pensamiento tiene un lugar. No
+          reemplazamos procesos psicoterapéuticos, pero sí complementamos tu bienestar emocional.
+        </p>
+        <a
+          href="/class.html"
+          class="inline-block rounded-full border-2 border-secondary px-8 py-3 font-bold text-secondary transition hover:-translate-y-0.5 hover:bg-secondary-soft"
+        >
+          Conoce los acompañamientos
+        </a>
       </div>
-    </div>
-    <div class="container pb-3">
-      <div class="row">
+    </section>
+
+    <hr class="border-border" />
+
+    <!-- PILARES -->
+    <section>
+      <div class="mx-auto mb-12 max-w-2xl text-center">
+        <h2 class="mb-3 text-3xl font-semibold text-primary">El valor de escribir</h2>
+        <p class="text-lg text-body">
+          A través del journaling terapéutico, trabajamos juntos estos pilares fundamentales para tu bienestar
+          emocional.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
-          activities.map((activity) => (
-            <div class="col-lg-4 col-md-6 pb-1">
-              <div class="d-flex align-items-center bg-light shadow-sm border-top rounded mb-4 p-4">
-                <i class={`${activity.icon} h1 font-weight-normal text-primary mb-0`} />
-                <div class="pl-4">
-                  <h4>{activity.title}</h4>
-                  <p class="m-0">{activity.text}</p>
-                </div>
+          pillars.map((pillar) => (
+            <div class="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary-soft">
+                <i class={`fa ${pillar.icon} text-lg text-primary`} />
               </div>
+              <h3 class="mb-2 text-lg font-semibold text-ink">{pillar.title}</h3>
+              <p class="flex-grow text-sm text-body">{pillar.text}</p>
             </div>
           ))
         }
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </BaseLayout>

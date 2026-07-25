@@ -39,48 +39,30 @@ const ogImage = `${siteUrl}/img/logo.png`;
     <!-- Fuentes web -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome (iconografía) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-
-    <!-- Flaticon -->
-    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
-
-    <!-- Librerías CSS -->
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-
-    <!-- Base (Bootstrap + tema original compilado) -->
-    <link href="/css/style.min.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body class="bg-surface text-body antialiased">
     <Navbar current={current} />
 
     <slot />
 
     <Footer />
 
-    <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <button
+      id="back-to-top"
+      type="button"
+      aria-label="Volver arriba"
+      class="fixed bottom-6 right-6 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow-lift transition hover:bg-primary-hover"
+    >
+      <i class="fa fa-angle-double-up"></i>
+    </button>
 
-    <!-- Librerías JS -->
-    <script
-      is:inline
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
-      crossorigin="anonymous"></script>
-    <script
-      is:inline
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
-      integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
-      crossorigin="anonymous"></script>
-    <script is:inline src="/lib/easing/easing.min.js"></script>
-    <script is:inline src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script is:inline src="/lib/isotope/isotope.pkgd.min.js"></script>
-    <script is:inline src="/lib/lightbox/js/lightbox.min.js"></script>
-    <script is:inline src="/js/main.js"></script>
+    <script is:inline src="/js/interactions.js"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PageHeader from "../components/PageHeader.astro";
 import AgendaForm from "../components/AgendaForm.astro";
 import { courses } from "../data/courses.js";
 ---
@@ -11,68 +10,89 @@ import { courses } from "../data/courses.js";
   path="/class.html"
   current="class"
 >
-  <PageHeader title="Acompañamiento Personalizado" current="Acompañamiento Personalizado" />
-
-  <div class="container-fluid pt-5">
-    <div class="container">
-      <div class="text-center pb-2">
-        <h2 class="mb-4">Nuestros Acompañamientos</h2>
-      </div>
-      <p style="text-align: justify;">
-        Los acompañamientos están diseñados para acompañarte en un proceso de conexión profunda contigo mismo.
-        A través del journaling terapéutico guiado, te ofrecemos un espacio seguro para detenerte, observar tus
-        emociones, ordenar tus pensamientos y desarrollar una relación más consciente y amable con tu mundo interno.
-        Cada programa combina estructura, profundidad y práctica, permitiéndote avanzar a tu propio ritmo y aplicar
-        lo aprendido en tu vida diaria.
+  <main class="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16 md:px-10">
+    <header class="mx-auto max-w-3xl space-y-4 text-center">
+      <h1 class="text-4xl font-bold text-primary md:text-5xl">Programas de Acompañamiento</h1>
+      <p class="text-lg text-body">
+        Espacios individuales y seguros donde utilizamos el journaling terapéutico como herramienta principal
+        para explorar, comprender y regular tus emociones.
       </p>
+    </header>
+
+    <div class="flex flex-col gap-10">
+      {
+        courses.map((course) => (
+          <article class="flex flex-col gap-8 rounded-2xl border border-border bg-card p-8 shadow-soft transition hover:shadow-lift md:flex-row md:p-10">
+            <div class="flex-grow space-y-4">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="rounded-full bg-secondary-soft px-3 py-1 text-xs font-bold text-secondary">
+                  {course.badge}
+                </span>
+                <h2 class="text-2xl font-semibold text-ink">{course.title}</h2>
+              </div>
+              <p class="text-body">{course.description}</p>
+              <div class="grid grid-cols-1 gap-6 pt-2 sm:grid-cols-2">
+                <div>
+                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-primary">
+                    <i class="fa fa-user" /> ¿Para quién es?
+                  </h3>
+                  <ul class="space-y-1.5 text-sm text-body">
+                    {course.audience.map((item) => (
+                      <li class="flex gap-2">
+                        <i class="fa fa-check mt-1 text-xs text-success" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="mb-2 flex items-center gap-2 text-sm font-bold text-primary">
+                    <i class="fa fa-clipboard-list" /> ¿Qué se trabaja?
+                  </h3>
+                  <ul class="space-y-1.5 text-sm text-body">
+                    {course.topics.map((item) => (
+                      <li class="flex gap-2">
+                        <i class="fa fa-check mt-1 text-xs text-success" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex w-full flex-col gap-4 rounded-2xl border border-border bg-surface p-6 md:w-72 md:flex-shrink-0">
+              <div class="space-y-1">
+                <span class="block text-lg font-semibold text-ink">Cupos: 4</span>
+                <span class="flex items-center gap-2 text-sm text-body">
+                  <i class="fa fa-calendar-day text-secondary" />
+                  {course.day}
+                </span>
+              </div>
+              <ul class="space-y-1 text-sm text-body">
+                {course.slots.map((slot) => (
+                  <li class="flex items-center gap-2">
+                    <i class="fa fa-clock text-secondary" />
+                    {slot}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#agenda"
+                class="mt-auto w-full rounded-full bg-primary py-3 text-center text-sm font-bold text-white transition hover:bg-primary-hover"
+              >
+                Agendar este programa
+              </a>
+            </div>
+          </article>
+        ))
+      }
     </div>
 
-    {
-      courses.map((course, i) => (
-        <div class="container-fluid py-5">
-          <div class="container">
-            <div class="row align-items-center">
-              {i % 2 === 1 && (
-                <div class="col-lg-5">
-                  <img class="img-fluid rounded mb-5 mb-lg-0" src={course.image} alt={course.title} loading="lazy" />
-                </div>
-              )}
-              <div class="col-lg-7">
-                <p class="section-title pr-5">
-                  <span class="pr-2">Acompañamiento {i + 1}</span>
-                </p>
-                <h2 class="mb-4">{course.title}</h2>
-                <p style="text-align: justify">{course.description}</p>
-                <p>¿Para quién es?</p>
-                <ul class="list-inline m-0">
-                  {course.audience.map((item) => (
-                    <li class="py-2">
-                      <i class="fa fa-check text-success mr-3" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p class="mt-3">¿Qué se trabaja en el curso?</p>
-                <ul class="list-inline m-0">
-                  {course.topics.map((item) => (
-                    <li class="py-2">
-                      <i class="fa fa-check text-success mr-3" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {i % 2 === 0 && (
-                <div class="col-lg-5">
-                  <img class="img-fluid rounded mb-5 mb-lg-0" src={course.image} alt={course.title} loading="lazy" />
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      ))
-    }
-  </div>
+    <p class="text-center text-lg font-bold text-secondary">
+      <i class="fa fa-money-bill mr-2"></i>Valor de lanzamiento del Acompañamiento — $25.000
+    </p>
 
-  <AgendaForm courses={courses} />
+    <AgendaForm courses={courses} />
+  </main>
 </BaseLayout>

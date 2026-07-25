@@ -1,6 +1,35 @@
-@import "./tokens.css";
+@import "tailwindcss";
 
-/* ---------- Base ---------- */
+@theme {
+  /* Paleta de marca (fija — #17a2b8 / #00394f, NO los tonos M3 generados por Stitch) */
+  --color-primary: #17a2b8;
+  --color-primary-hover: #148aa0;
+  --color-primary-soft: #e3f4f7;
+  --color-secondary: #00394f;
+  --color-secondary-soft: #e5edf1;
+
+  /* Neutros */
+  --color-ink: #151c22;
+  --color-body: #3d494c;
+  --color-muted: #6d797c;
+  --color-surface: #f8f9fa;
+  --color-card: #ffffff;
+  --color-field: #eef2f4;
+  --color-border: #dce3e6;
+  --color-success: #1d8a4e;
+
+  /* Tipografía */
+  --font-display: "Literata", Georgia, serif;
+  --font-body: "Nunito Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Radios (más generosos que el default de Tailwind, look "papelería") */
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  /* Sombras suaves tintadas en secondary, look "hoja de papel" */
+  --shadow-soft: 0 4px 20px -2px rgba(0, 57, 79, 0.07), 0 0 3px rgba(0, 57, 79, 0.03);
+  --shadow-lift: 0 16px 32px -8px rgba(0, 57, 79, 0.14), 0 4px 8px rgba(0, 57, 79, 0.06);
+}
 
 html {
   scroll-behavior: smooth;
@@ -8,159 +37,20 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: var(--fs-body);
-  line-height: var(--lh-normal);
   color: var(--color-body);
+  background-color: var(--color-surface);
 }
 
-h1, h2, h3, h4, h5, h6,
-.display-3 {
+h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
-  line-height: var(--lh-tight);
-  color: var(--color-secondary);
+  color: var(--color-ink);
 }
 
-h1, .display-3 {
-  font-size: var(--fs-hero);
-}
-
-.h1, h1.mb-4 {
-  font-size: var(--fs-h1);
-}
-
-a {
-  transition: color 0.2s ease;
-}
-
-/* ---------- Navbar ---------- */
-
-.navbar {
-  transition: box-shadow 0.2s ease;
-}
-
-.navbar-brand {
-  font-family: var(--font-display) !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.01em;
-}
-
-.navbar-brand .brand-icon {
-  color: var(--color-primary);
-  margin-right: 0.4rem;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-}
-
-/* ---------- Hero ---------- */
-
-.hero {
-  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-secondary-light) 100%);
-  overflow: hidden;
-  position: relative;
-}
-
-.hero .eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: var(--fs-small);
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.hero p.lead {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 46ch;
-}
-
-/* ---------- Section title ---------- */
-
-.section-title {
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: var(--fs-small);
-  letter-spacing: 0.14em;
-}
-
-.section-title span {
-  background: var(--color-paper);
-}
-
-/* ---------- Buttons ---------- */
-
-.btn {
-  font-family: var(--font-body);
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  border-radius: var(--radius-pill);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.btn-primary,
-.btn-secondary {
-  border: none;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-soft);
-}
-
-/* ---------- Cards ---------- */
-
-.card {
-  border-radius: var(--radius-md) !important;
-  border: 1px solid var(--color-border);
-  overflow: hidden;
-}
-
-.card.shadow-sm {
-  box-shadow: var(--shadow-soft) !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card.shadow-sm:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lift) !important;
-}
-
-.card-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-}
-
-/* ---------- Testimonials ---------- */
-
-.testimonial-item .bg-light {
-  border-radius: var(--radius-md);
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--color-secondary);
-}
-
-/* ---------- Footer ---------- */
-
-footer,
-.site-footer {
-  background: var(--color-secondary) !important;
-}
-
-.site-footer a {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.site-footer a:hover {
-  color: var(--color-primary);
-}
-
-/* ---------- Back to top ---------- */
-
-.back-to-top {
-  border-radius: var(--radius-pill);
+.paper-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 30px,
+    rgba(0, 57, 79, 0.05) 30px,
+    rgba(0, 57, 79, 0.05) 31px
+  );
 }

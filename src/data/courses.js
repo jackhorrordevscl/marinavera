@@ -1,6 +1,7 @@
 export const courses = [
   {
     slug: "introduccion",
+    badge: "Básico",
     title: "Acompañamiento individual: Introducción al journaling con enfoque psicológico",
     shortTitle: "Introducción al Journaling con enfoque psicológico",
     image: "/img/curso-1.webp",
@@ -26,6 +27,7 @@ export const courses = [
   },
   {
     slug: "regulacion-emocional",
+    badge: "Profundo",
     title: "Acompañamiento individual: Journaling y Regulación Emocional",
     shortTitle: "Journaling y Regulación Emocional",
     image: "/img/curso-2.webp",
@@ -51,6 +53,7 @@ export const courses = [
   },
   {
     slug: "ansiedad",
+    badge: "Específico",
     title: "Acompañamiento individual: Journaling para Ansiedad",
     shortTitle: "Journaling para Ansiedad",
     image: "/img/curso-3.webp",
