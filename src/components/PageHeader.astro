@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  current: string;
+}
+
+const { title, current } = Astro.props;
+---
+
+<div class="container-fluid hero mb-5">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 320px">
+    <h1 class="text-white mb-3">{title}</h1>
+    <div class="d-inline-flex text-white">
+      <p class="m-0"><a class="text-white" href="/">Inicio</a></p>
+      <p class="m-0 px-2">/</p>
+      <p class="m-0">{current}</p>
+    </div>
+  </div>
+</div>

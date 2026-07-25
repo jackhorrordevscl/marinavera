@@ -1,0 +1,243 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AgendaForm from "../components/AgendaForm.astro";
+import { courses } from "../data/courses.js";
+
+const testimonials = [
+  {
+    quote: "El journaling terapéutico me permitió profundizar en mis procesos emocionales y fortalecer mi autocuidado diario.",
+    name: "María Gonzalez (32)",
+    role: "Psicóloga",
+  },
+  {
+    quote: "Aprendí a entender lo que sentía sin juzgarme. La escritura se volvió un espacio seguro para mí.",
+    name: "Camila Rojas (21)",
+    role: "Estudiante",
+  },
+  {
+    quote: "Los ejercicios me ayudaron a ordenar mis pensamientos y reducir la ansiedad de forma práctica y constante.",
+    name: "Andrés Muñoz (38)",
+    role: "Ing. Comercial",
+  },
+  {
+    quote: "Cada curso está guiado con mucha claridad y sensibilidad. Hoy escribo para comprenderme, no para exigirme.",
+    name: "Valentina Pérez (27)",
+    role: "Diseñadora Gráfica",
+  },
+];
+
+const socialPosts = [
+  {
+    image: "/img/tiktok.webp",
+    icon: "fab fa-tiktok",
+    title: "30 Días de Journaling",
+    text: "Acá te dejo varias ideas para no agotar tus recursos creativos. Lo importante es disfrutar tu proceso y tu Journal! Guarda esta publicación si es que contribuye a tu creatividad 🩷",
+    href: "https://www.tiktok.com/@marinna_decolores/photo/7547021458174708997",
+  },
+  {
+    image: "/img/rrss2.webp",
+    icon: "fab fa-tiktok",
+    title: "Todo lo que tienes que saber antes de entrar al journaling",
+    text: "Poner en un lugar físico aquello que sentimos mejora de manera considerable nuestra salud mental 🩷",
+    href: "https://www.tiktok.com/@marinna_decolores/photo/7542587523487354117",
+  },
+  {
+    image: "/img/rrss3.webp",
+    icon: "fab fa-tiktok",
+    title: "¿Tienes un Vision Board?",
+    text: "Desde la psicología, el journaling es una estrategia de metacognición: escribir permite observar los propios pensamientos, identificar sesgos cognitivos y regular emociones.",
+    href: "https://www.tiktok.com/@marinna_decolores/photo/7592403331981593863",
+  },
+];
+---
+
+<BaseLayout
+  title="Journaling Terapéutico | Marina Vera - Acompañamiento con Enfoque Psicológico"
+  description="Journaling con enfoque psicológico para acompañarte en autorregulación, claridad emocional y crecimiento personal. Acompañamientos individuales guiados por Marina Vera."
+  path="/"
+  current="index"
+>
+  <!-- HERO -->
+  <div class="container-fluid hero px-0 px-md-5 mb-5">
+    <div class="row align-items-center px-3">
+      <div class="col-lg-6 text-center text-lg-left py-5">
+        <p class="eyebrow mb-3">Journaling con enfoque psicológico</p>
+        <h1 class="mb-4">Un espacio para escribir lo que aún no sabes cómo decir.</h1>
+        <p class="lead mb-4 mx-auto mx-lg-0">
+          Acompañamiento diseñado para ayudarte a encontrar claridad, autorregulación y crecimiento personal a través de la escritura guiada, con base en evidencia psicológica.
+        </p>
+        <a href="/class.html" class="btn btn-secondary mt-1 py-3 px-5">Conozca Más</a>
+      </div>
+      <div class="col-lg-6 text-center text-lg-right">
+        <img class="img-fluid mt-5" src="/img/header.webp" alt="Ilustración de una persona escribiendo en su diario de journaling" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ACERCA DE -->
+  <div class="container-fluid py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5">
+          <img
+            class="img-fluid rounded mb-5 mb-lg-0"
+            src="/img/shabby-chic.webp"
+            alt="Materiales de scrapbooking y papelería para journaling"
+            loading="lazy"
+          />
+        </div>
+        <div class="col-lg-7" style="text-align: justify;">
+          <p class="section-title pr-5"><span class="pr-2">Conozca sobre Nosotros</span></p>
+          <h2 class="mb-4">¿Qué es el Journaling con Enfoque Psicológico?</h2>
+          <p>
+            Es un espacio para detenerte, escucharte y entender lo que pasa dentro de ti. A través de la escritura,
+            te ayuda a ordenar pensamientos, conectar con tus emociones y darles un sentido más claro, sin juicio y a tu propio ritmo.
+          </p>
+          <p>
+            No se trata solo de escribir lo que pasó en tu día: esta forma de journaling te guía paso a paso
+            para mirar lo que sientes, reconocer lo que se repite en tu vida y encontrar nuevas formas de responder a lo que te duele o te inquieta.
+          </p>
+          <p>Durante el proceso aprenderás a:</p>
+          <ul class="list-inline m-0">
+            <li class="py-2 border-top border-bottom">
+              <i class="fa fa-check text-success mr-3"></i>Identificar tus emociones y entender por qué aparecen.
+            </li>
+            <li class="py-2 border-bottom">
+              <i class="fa fa-check text-success mr-3"></i>Detectar pensamientos que te generan malestar.
+            </li>
+            <li class="py-2 border-bottom">
+              <i class="fa fa-check text-success mr-3"></i>Expresarte de manera consciente y calmada.
+            </li>
+            <li class="py-2 border-bottom">
+              <i class="fa fa-check text-success mr-3"></i>Darle palabras a experiencias que a veces cuesta explicar.
+            </li>
+            <li class="py-2 border-bottom">
+              <i class="fa fa-check text-success mr-3"></i>Construir una mirada más amable y clara sobre ti misma/o.
+            </li>
+          </ul>
+          <p class="mt-3">
+            Es una práctica segura, respetuosa y pensada para acompañarte en tu crecimiento personal, usando la escritura
+            como herramienta de apoyo emocional y autoconocimiento. No reemplaza procesos psicoterapéuticos, pero puede
+            complementar tu bienestar emocional.
+          </p>
+          <a href="/about.html" class="btn btn-primary mt-2 py-2 px-4">Conozca Más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACOMPAÑAMIENTOS -->
+  <div class="container-fluid pt-5">
+    <div class="container">
+      <div class="text-center pb-2">
+        <p class="section-title px-5"><span class="px-2">Acompañamientos</span></p>
+        <h2 class="mb-4">¿Tienes interés en participar?</h2>
+      </div>
+      <div class="row">
+        {
+          courses.map((course) => (
+            <div class="col-lg-4 mb-5">
+              <div class="card border-0 bg-light shadow-sm pb-2">
+                <img class="card-img-top mb-2" src={course.cardImage} alt={course.shortTitle} loading="lazy" />
+                <div class="card-body text-center">
+                  <h4 class="card-title">{course.shortTitle}</h4>
+                  <p class="card-text">{course.summary}</p>
+                </div>
+                <div class="card-footer bg-transparent py-4 px-5">
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right"><strong>Cupos</strong></div>
+                    <div class="col-6 py-1">4</div>
+                  </div>
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right"><strong>Día</strong></div>
+                    <div class="col-6 py-1">{course.day}</div>
+                  </div>
+                  {course.slots.map((slot, i) => (
+                    <div class="row border-bottom">
+                      <div class="col-6 py-1 text-right border-right">
+                        {i === 0 && <strong>Horarios</strong>}
+                      </div>
+                      <div class="col-6 py-1">{slot}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <h4 class="mb-4" style="text-align: center; font-weight: bold;">
+        <i class="fa fa-money-bill"></i> Valor de lanzamiento del Acompañamiento - $25.000
+      </h4>
+    </div>
+  </div>
+
+  <!-- REGISTRO -->
+  <AgendaForm courses={courses} />
+
+  <!-- TESTIMONIOS -->
+  <div class="container-fluid py-5">
+    <div class="container p-0">
+      <div class="text-center pb-2">
+        <p class="section-title px-5"><span class="px-2">Testimonios</span></p>
+        <h2 class="mb-4">Que dicen acerca de nosotros</h2>
+      </div>
+      <div class="owl-carousel testimonial-carousel">
+        {
+          testimonials.map((t) => (
+            <div class="testimonial-item px-3">
+              <div class="bg-light shadow-sm rounded mb-4 p-4">
+                <h3 class="fas fa-quote-left text-primary mr-3" />
+                {t.quote}
+              </div>
+              <div class="d-flex align-items-center">
+                <img
+                  class="rounded-circle"
+                  src="/img/avatar.webp"
+                  style="width: 70px; height: 70px"
+                  alt={`Foto de ${t.name}`}
+                  loading="lazy"
+                />
+                <div class="pl-3">
+                  <h5>{t.name}</h5>
+                  <i>{t.role}</i>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- REDES SOCIALES -->
+  <div class="container-fluid pt-5">
+    <div class="container">
+      <div class="text-center pb-2">
+        <p class="section-title px-5"><span class="px-2">Nuestras Redes Sociales</span></p>
+        <h2 class="mb-4">Últimos artículos de nuestras Redes</h2>
+      </div>
+      <div class="row pb-3">
+        {
+          socialPosts.map((post) => (
+            <div class="col-lg-4 mb-4">
+              <div class="card border-0 shadow-sm mb-2">
+                <img class="card-img-top mb-2" src={post.image} alt={post.title} loading="lazy" />
+                <div class="card-body bg-light text-center p-4">
+                  <h4>
+                    <i class={post.icon} />
+                    &nbsp;{post.title}
+                  </h4>
+                  <p>{post.text}</p>
+                  <a href={post.href} target="_blank" rel="noopener" class="btn btn-primary px-4 mx-auto my-2">
+                    Visitar
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

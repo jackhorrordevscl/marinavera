@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+---
+
+<BaseLayout
+  title="Contáctenos | Journaling Terapéutico"
+  description="Ponte en contacto con Journaling Terapéutico y agenda tu acompañamiento de journaling con enfoque psicológico junto a Marina Vera."
+  path="/contact.html"
+  current="contact"
+>
+  <PageHeader title="Contáctenos" current="Contáctenos" />
+
+  <div class="container-fluid pt-5">
+    <div class="container">
+      <div class="text-center pb-2">
+        <p class="section-title px-5"><span class="px-2">Ponte en Contacto!</span></p>
+        <h2 class="mb-4">Estamos aquí para acompañarte</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 mb-5">
+          <div class="contact-form">
+            <form
+              name="contact"
+              id="contactForm"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="d-none">
+                <label>No llenar si eres humano: <input name="bot-field" /></label>
+              </p>
+              <div class="control-group">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Nombre"
+                  required
+                  data-validation-required-message="Por favor, ingresa tu nombre"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="control-group">
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Correo Electrónico"
+                  required
+                  data-validation-required-message="Por favor, ingresa tu correo"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="control-group">
+                <input
+                  type="text"
+                  name="subject"
+                  class="form-control"
+                  id="subject"
+                  placeholder="Asunto"
+                  required
+                  data-validation-required-message="Por favor, indique el asunto"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="control-group">
+                <textarea
+                  class="form-control"
+                  rows="6"
+                  name="message"
+                  id="message"
+                  placeholder="Mensaje"
+                  required
+                  data-validation-required-message="Por favor, escribe un mensaje"
+                ></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+              <div>
+                <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">
+                  Enviar mensaje
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-5 mb-5">
+          <p style="text-align: justify;">
+            Nuestra comunidad está pensada para acompañar y sostener tu práctica de journaling en el tiempo.
+            A través de nuestro club de journaling, podrás participar en encuentros mensuales y cursos sincrónicos
+            diseñados para ofrecer orientación, motivación y continuidad en una práctica consciente y significativa.
+          </p>
+          <div class="d-flex">
+            <i
+              class="fa fa-envelope d-inline-flex align-items-center justify-content-center bg-primary text-secondary rounded-circle"
+              style="width: 45px; height: 45px"
+            ></i>
+            <div class="pl-3">
+              <h5>Correo Electrónico</h5>
+              <p>lic.ps.marinaverag@gmail.com</p>
+            </div>
+          </div>
+          <div class="d-flex">
+            <i
+              class="fab fa-whatsapp d-inline-flex align-items-center justify-content-center bg-primary text-secondary rounded-circle"
+              style="width: 45px; height: 45px"
+            ></i>
+            <div class="pl-3" style="padding-bottom: 1.25rem;">
+              <h5>Whatsapp</h5>
+              <a href="https://wa.me/+56937062554" style="color: #6b6b6b;">+56 9 3706 2554</a>
+            </div>
+          </div>
+          <div class="d-flex">
+            <i
+              class="far fa-clock d-inline-flex align-items-center justify-content-center bg-primary text-secondary rounded-circle"
+              style="width: 45px; height: 45px"
+            ></i>
+            <div class="pl-3">
+              <h5>Horario de Atención</h5>
+              <strong>Lunes a Viernes:</strong>
+              <p class="m-0">10:00 - 17:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

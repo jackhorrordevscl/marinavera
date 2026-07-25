@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import AgendaForm from "../components/AgendaForm.astro";
+import { courses } from "../data/courses.js";
+---
+
+<BaseLayout
+  title="Acompañamientos | Journaling Terapéutico"
+  description="Descubre los acompañamientos individuales de Journaling Terapéutico: introducción al journaling, regulación emocional y journaling para ansiedad."
+  path="/class.html"
+  current="class"
+>
+  <PageHeader title="Acompañamiento Personalizado" current="Acompañamiento Personalizado" />
+
+  <div class="container-fluid pt-5">
+    <div class="container">
+      <div class="text-center pb-2">
+        <h2 class="mb-4">Nuestros Acompañamientos</h2>
+      </div>
+      <p style="text-align: justify;">
+        Los acompañamientos están diseñados para acompañarte en un proceso de conexión profunda contigo mismo.
+        A través del journaling terapéutico guiado, te ofrecemos un espacio seguro para detenerte, observar tus
+        emociones, ordenar tus pensamientos y desarrollar una relación más consciente y amable con tu mundo interno.
+        Cada programa combina estructura, profundidad y práctica, permitiéndote avanzar a tu propio ritmo y aplicar
+        lo aprendido en tu vida diaria.
+      </p>
+    </div>
+
+    {
+      courses.map((course, i) => (
+        <div class="container-fluid py-5">
+          <div class="container">
+            <div class="row align-items-center">
+              {i % 2 === 1 && (
+                <div class="col-lg-5">
+                  <img class="img-fluid rounded mb-5 mb-lg-0" src={course.image} alt={course.title} loading="lazy" />
+                </div>
+              )}
+              <div class="col-lg-7">
+                <p class="section-title pr-5">
+                  <span class="pr-2">Acompañamiento {i + 1}</span>
+                </p>
+                <h2 class="mb-4">{course.title}</h2>
+                <p style="text-align: justify">{course.description}</p>
+                <p>¿Para quién es?</p>
+                <ul class="list-inline m-0">
+                  {course.audience.map((item) => (
+                    <li class="py-2">
+                      <i class="fa fa-check text-success mr-3" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p class="mt-3">¿Qué se trabaja en el curso?</p>
+                <ul class="list-inline m-0">
+                  {course.topics.map((item) => (
+                    <li class="py-2">
+                      <i class="fa fa-check text-success mr-3" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {i % 2 === 0 && (
+                <div class="col-lg-5">
+                  <img class="img-fluid rounded mb-5 mb-lg-0" src={course.image} alt={course.title} loading="lazy" />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <AgendaForm courses={courses} />
+</BaseLayout>

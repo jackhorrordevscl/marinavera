@@ -1,0 +1,43 @@
+:root {
+  /* Paleta de marca (fija — no modificar) */
+  --color-primary: #17a2b8;
+  --color-primary-dark: #128a9c;
+  --color-primary-light: #e8f7f9;
+  --color-secondary: #00394f;
+  --color-secondary-light: #0a4f6b;
+  --color-ink: #333333;
+  --color-body: #5c6670;
+  --color-paper: #ffffff;
+  --color-paper-muted: #f7f9fa;
+  --color-border: #e5eaec;
+
+  /* Tipografía */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --fs-hero: clamp(2.25rem, 4vw + 1rem, 3.5rem);
+  --fs-h1: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+  --fs-h2: clamp(1.4rem, 1.5vw + 1rem, 1.85rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+
+  --lh-tight: 1.15;
+  --lh-normal: 1.7;
+
+  /* Espaciado */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3rem;
+  --space-xl: 5.5rem;
+  --space-2xl: 8rem;
+
+  /* Forma */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-pill: 999px;
+
+  /* Sombra */
+  --shadow-soft: 0 10px 30px -12px rgba(0, 57, 79, 0.18);
+  --shadow-lift: 0 20px 45px -18px rgba(0, 57, 79, 0.28);
+}

@@ -1,0 +1,86 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  current?: "index" | "about" | "class" | "contact";
+}
+
+const { title, description, path, current = "index" } = Astro.props;
+const siteUrl = "https://marinavera.netlify.app";
+const canonical = `${siteUrl}${path}`;
+const ogImage = `${siteUrl}/img/logo.png`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link href="/img/logo.png" rel="icon" type="image/png" />
+
+    <!-- Fuentes web -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+
+    <!-- Flaticon -->
+    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Librerías CSS -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Base (Bootstrap + tema original compilado) -->
+    <link href="/css/style.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <Navbar current={current} />
+
+    <slot />
+
+    <Footer />
+
+    <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- Librerías JS -->
+    <script
+      is:inline
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+      crossorigin="anonymous"></script>
+    <script
+      is:inline
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+      integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+      crossorigin="anonymous"></script>
+    <script is:inline src="/lib/easing/easing.min.js"></script>
+    <script is:inline src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script is:inline src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script is:inline src="/lib/lightbox/js/lightbox.min.js"></script>
+    <script is:inline src="/js/main.js"></script>
+  </body>
+</html>

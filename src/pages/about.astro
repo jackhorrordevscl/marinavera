@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const activities = [
+  {
+    icon: "flaticon-032-book",
+    title: "Actividades de Expresión Emocional",
+    text: "Permitir la descarga emocional y la toma de conciencia afectiva.",
+  },
+  {
+    icon: "flaticon-022-drum",
+    title: "Autoconocimiento y Exploración Interna",
+    text: "Aumentar el insight y la comprensión de patrones internos.",
+  },
+  {
+    icon: "flaticon-030-crayons",
+    title: "Actividades de Regulación Emocional",
+    text: "Estabilizar los estados emocionales y disminuir su activación.",
+  },
+  {
+    icon: "flaticon-024-shape-toy",
+    title: "Manejo de Ansiedad",
+    text: "Trabajar los patrones de pensamiento de la ansiedad mediante journaling guiado.",
+  },
+  {
+    icon: "flaticon-019-pencil",
+    title: "Narrativa y Re-significación",
+    text: "Reconstruir la narrativa personal.",
+  },
+  {
+    icon: "flaticon-004-balloons",
+    title: "Integración y Síntesis",
+    text: "Consolidar los aprendizajes y conectar las experiencias.",
+  },
+];
+---
+
+<BaseLayout
+  title="Acerca de Nosotros | Journaling Terapéutico"
+  description="Conoce el proyecto de Journaling Terapéutico y cómo la escritura guiada con enfoque psicológico puede acompañarte en tu autoconocimiento y bienestar emocional."
+  path="/about.html"
+  current="about"
+>
+  <PageHeader title="Acerca de Nosotros" current="Acerca de Nosotros" />
+
+  <!-- SOBRE EL PROYECTO -->
+  <div class="container-fluid py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5">
+          <img
+            class="img-fluid rounded mb-5 mb-lg-0"
+            src="/img/foto2.jpg"
+            alt="Marina Vera, psicóloga y facilitadora de Journaling Terapéutico"
+            loading="lazy"
+          />
+        </div>
+        <div class="col-lg-7" style="text-align: justify;">
+          <p class="section-title pr-5"><span class="pr-2">Sobre el Proyecto</span></p>
+          <h2 class="mb-4">Un enfoque profesional y humano para tu bienestar emocional</h2>
+          <p>
+            Nuestra comunidad está pensada para ofrecer acompañamiento y continuidad en la práctica de journaling.
+          </p>
+          <p>
+            A través de encuentros grupales mensuales, espacios compartidos y propuestas guiadas, podrás sostener
+            una práctica consciente, acompañada y significativa, respetando tus propios ritmos.
+          </p>
+          <p>
+            Creemos en el crecimiento personal consciente, sin promesas rápidas, y en el poder de la escritura
+            como herramienta de comprensión y transformación personal.
+          </p>
+          <a href="/class.html" class="btn btn-primary mt-2 py-2 px-4">Conozca Más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIVIDADES -->
+  <div class="container-fluid pt-5">
+    <div class="container">
+      <div class="text-center pb-2">
+        <p class="section-title px-5"><span class="px-2">Actividades</span></p>
+        <h2 class="mb-4">Descubre nuestro Programa</h2>
+      </div>
+    </div>
+    <div class="container pb-3">
+      <div class="row">
+        {
+          activities.map((activity) => (
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div class="d-flex align-items-center bg-light shadow-sm border-top rounded mb-4 p-4">
+                <i class={`${activity.icon} h1 font-weight-normal text-primary mb-0`} />
+                <div class="pl-4">
+                  <h4>{activity.title}</h4>
+                  <p class="m-0">{activity.text}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>
