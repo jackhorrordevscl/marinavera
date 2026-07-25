@@ -1,6 +1,6 @@
 # Journaling Terapéutico
 
-Sitio web de Marina Vera — journaling con enfoque psicológico. Landing de 4 páginas construida con [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com), sin backend propio, desplegado en Netlify.
+Sitio web de Marina Vera — journaling con enfoque psicológico. Landing de 4 páginas construida con [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com), desplegada en Vercel.
 
 ## Stack
 
@@ -8,7 +8,7 @@ Sitio web de Marina Vera — journaling con enfoque psicológico. Landing de 4 p
 - **Tailwind CSS v4** — vía `@tailwindcss/vite`, configurado en `src/styles/global.css` (bloque `@theme`). No usa Bootstrap, jQuery ni ninguna librería del sitio original.
 - **astro-icon** — íconos como SVG inline (`@iconify-json/fa6-solid` / `fa6-brands` / `fa6-regular`), sin cargar la librería completa de Font Awesome desde un CDN. Ver sección "Íconos" más abajo.
 - **astro:assets** — imágenes de contenido optimizadas automáticamente en build. Ver sección "Imágenes".
-- **Netlify Forms** — los 2 formularios del sitio (`contact`, `agenda`) se envían con `data-netlify="true"` + honeypot, sin backend propio ni servicio externo (EmailJS, etc.). Netlify los detecta automáticamente en el HTML generado en cada build.
+- **Formularios — ⚠️ pendiente.** Los 2 formularios (`contact`, `agenda`) todavía tienen los atributos de Netlify Forms (`data-netlify="true"` + honeypot), que en Vercel no hacen nada — el `<form>` haría un POST plano a una página estática y fallaría. Falta definir el backend de envío (Formspree, una Vercel Function con un proveedor de email, etc.) antes de ir a producción. Ver issue de seguimiento.
 - **Sin CMS** — el contenido vive directo en los archivos `.astro` y en `src/data/courses.js`. Nadie edita esto desde un panel; los cambios de contenido son vía código.
 
 ## Desarrollo local
@@ -20,7 +20,7 @@ npm run build     # genera dist/
 npm run preview   # sirve dist/ localmente
 ```
 
-> Los formularios de Netlify **no** se pueden probar end-to-end en local (`npm run dev`) — Netlify solo los detecta y procesa en un deploy real. Para probarlos hay que pushear a una rama con deploy preview activo, o a producción.
+> Los formularios no tienen backend funcional todavía (ver sección "Stack" arriba) — el envío no va a funcionar ni en local ni en producción hasta resolver eso.
 
 ## Estructura
 
@@ -63,4 +63,6 @@ Definidos en `src/styles/global.css` (`@theme`), junto con las variantes `-text`
 
 ## Deploy
 
-`netlify.toml` define el build (`npm run build` → publica `dist/`), headers de seguridad (CSP estricto, sin `unsafe-inline`) y cache. El deploy es automático en cada push a la rama conectada en el dashboard de Netlify.
+`vercel.json` define el build (`npm run build` → publica `dist/`), headers de seguridad (CSP estricto, sin `unsafe-inline`) y cache. El deploy es automático en cada push a la rama conectada en el dashboard de Vercel.
+
+`site` en `astro.config.mjs` (usado para canonical/OG/sitemap) y las URLs en `public/sitemap.xml` / `public/robots.txt` usan `https://marinavera.vercel.app` como placeholder — actualizar cuando esté el dominio final.
