@@ -65,4 +65,4 @@ Definidos en `src/styles/global.css` (`@theme`), junto con las variantes `-text`
 
 `vercel.json` define el build (`npm run build` → publica `dist/`), headers de seguridad (CSP estricto, sin `unsafe-inline`) y cache. El deploy es automático en cada push a la rama conectada en el dashboard de Vercel.
 
-`site` en `astro.config.mjs` (usado para canonical/OG/sitemap) y las URLs en `public/sitemap.xml` / `public/robots.txt` usan `https://marinavera.vercel.app` como placeholder — actualizar cuando esté el dominio final.
+`site` en `astro.config.mjs` (usado para canonical/OG/sitemap) y las URLs en `public/sitemap.xml` / `public/robots.txt` apuntan a `https://journalingenred.vercel.app`.

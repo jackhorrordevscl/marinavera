@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 
 export default defineConfig({
-  site: 'https://marinavera.vercel.app',
+  site: 'https://journalingenred.vercel.app',
   build: {
     format: 'file',
   },
