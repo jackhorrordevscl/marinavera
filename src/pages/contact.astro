@@ -26,17 +26,11 @@ const whatsappHref = "https://wa.me/56937062554?text=Hola%2C%20quiero%20saber%20
       <!-- FORMULARIO -->
       <div class="rounded-2xl border border-border bg-card p-8 shadow-soft md:col-span-7">
         <h2 class="mb-6 text-2xl font-semibold text-ink">Déjame un mensaje</h2>
-        <form
-          name="contact"
-          method="POST"
-          action="/gracias.html"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          class="space-y-5"
-        >
-          <input type="hidden" name="form-name" value="contact" />
+        <form method="POST" action="https://formspree.io/f/mgogryyq" class="space-y-5">
+          <input type="hidden" name="_subject" value="Nuevo mensaje de contacto — Journaling Terapéutico" />
+          <input type="hidden" name="_next" value="https://journalingenred.vercel.app/gracias.html" />
           <p class="hidden">
-            <label>No llenar si eres humano: <input name="bot-field" /></label>
+            <label>No llenar si eres humano: <input name="_gotcha" tabindex="-1" autocomplete="off" /></label>
           </p>
           <div>
             <label class="mb-1.5 block text-sm font-bold text-ink" for="name">Nombre completo</label>

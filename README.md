@@ -8,7 +8,7 @@ Sitio web de Marina Vera — journaling con enfoque psicológico. Landing de 4 p
 - **Tailwind CSS v4** — vía `@tailwindcss/vite`, configurado en `src/styles/global.css` (bloque `@theme`). No usa Bootstrap, jQuery ni ninguna librería del sitio original.
 - **astro-icon** — íconos como SVG inline (`@iconify-json/fa6-solid` / `fa6-brands` / `fa6-regular`), sin cargar la librería completa de Font Awesome desde un CDN. Ver sección "Íconos" más abajo.
 - **astro:assets** — imágenes de contenido optimizadas automáticamente en build. Ver sección "Imágenes".
-- **Formularios — ⚠️ pendiente.** Los 2 formularios (`contact`, `agenda`) todavía tienen los atributos de Netlify Forms (`data-netlify="true"` + honeypot), que en Vercel no hacen nada — el `<form>` haría un POST plano a una página estática y fallaría. Falta definir el backend de envío (Formspree, una Vercel Function con un proveedor de email, etc.) antes de ir a producción. Ver issue de seguimiento.
+- **Formspree** — los 2 formularios (`contact`, `agenda`) envían a `https://formspree.io/f/mgogryyq` (mismo endpoint para ambos, diferenciados por `_subject`). Honeypot vía campo `_gotcha` (convención propia de Formspree, reemplaza al de Netlify), redirect post-envío vía `_next`. El CSP en `vercel.json` permite explícitamente `form-action` hacia `https://formspree.io` — si se cambia de proveedor hay que actualizar ese header también, si no el navegador bloquea el POST.
 - **Sin CMS** — el contenido vive directo en los archivos `.astro` y en `src/data/courses.js`. Nadie edita esto desde un panel; los cambios de contenido son vía código.
 
 ## Desarrollo local
@@ -20,7 +20,7 @@ npm run build     # genera dist/
 npm run preview   # sirve dist/ localmente
 ```
 
-> Los formularios no tienen backend funcional todavía (ver sección "Stack" arriba) — el envío no va a funcionar ni en local ni en producción hasta resolver eso.
+> Los formularios apuntan a Formspree (servicio externo) — el envío funciona igual en local que en producción, no depende de un backend propio.
 
 ## Estructura
 
