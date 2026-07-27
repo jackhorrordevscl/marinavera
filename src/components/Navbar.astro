@@ -25,7 +25,7 @@ const links = [
       <span class="font-display text-lg font-semibold text-ink">Journaling Terapéutico</span>
     </a>
 
-    <div class="hidden items-center gap-8 md:flex">
+    <div class="hidden items-center gap-6 lg:flex">
       {
         links.map((link) => (
           <a
@@ -42,7 +42,7 @@ const links = [
       }
     </div>
 
-    <Button href={ctaHref} size="md" class="hidden md:inline-flex">Agendar Cita</Button>
+    <Button href={ctaHref} size="md" display="hidden lg:inline-flex">Agendar Cita</Button>
 
     <button
       id="nav-toggle"
@@ -50,13 +50,13 @@ const links = [
       aria-label="Abrir menú"
       aria-controls="nav-menu"
       aria-expanded="false"
-      class="flex h-10 w-10 items-center justify-center rounded-full text-ink md:hidden"
+      class="flex h-11 w-11 items-center justify-center rounded-full text-ink lg:hidden"
     >
       <Icon name="bars" class="h-5 w-5" />
     </button>
   </div>
 
-  <div id="nav-menu" class="hidden border-t border-border/60 px-6 py-4 md:hidden">
+  <div id="nav-menu" class="hidden border-t border-border/60 px-6 py-4 lg:hidden">
     <div class="flex flex-col gap-4">
       {
         links.map((link) => (

@@ -26,7 +26,7 @@ import { courses } from "../data/courses.js";
         courses.map((course) => (
           <article
             id={course.slug}
-            class="scroll-mt-24 flex flex-col gap-8 rounded-2xl border border-border bg-card p-8 shadow-soft transition hover:shadow-lift md:flex-row md:p-10"
+            class="scroll-mt-24 flex flex-col gap-8 rounded-2xl border border-border bg-card p-8 shadow-soft transition hover:shadow-lift md:p-10 lg:flex-row"
           >
             <div class="flex-grow space-y-4">
               <div class="flex flex-wrap items-center gap-3">
@@ -66,7 +66,7 @@ import { courses } from "../data/courses.js";
               </div>
             </div>
 
-            <div class="flex w-full flex-col gap-4 rounded-2xl border border-border bg-surface p-6 md:w-72 md:flex-shrink-0">
+            <div class="flex w-full flex-col gap-4 rounded-2xl border border-border bg-surface p-6 lg:w-72 lg:flex-shrink-0">
               <div class="flex h-14 w-14 items-center justify-center rounded-full bg-primary-soft">
                 <Icon name={course.icon} class="h-7 w-7 text-primary-text" />
               </div>

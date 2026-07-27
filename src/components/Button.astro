@@ -5,6 +5,7 @@ interface Props {
   variant?: "primary" | "outline";
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
+  display?: string;
   class?: string;
   target?: string;
   rel?: string;
@@ -16,6 +17,7 @@ const {
   variant = "primary",
   size = "lg",
   fullWidth = false,
+  display = "inline-flex",
   class: className = "",
   target,
   rel,
@@ -33,7 +35,8 @@ const variants = {
 };
 
 const classes = [
-  "inline-flex items-center justify-center gap-1.5 rounded-full font-bold transition hover:-translate-y-0.5",
+  display,
+  "items-center justify-center gap-1.5 rounded-full font-bold transition hover:-translate-y-0.5",
   sizes[size],
   variants[variant],
   fullWidth ? "w-full" : "",
