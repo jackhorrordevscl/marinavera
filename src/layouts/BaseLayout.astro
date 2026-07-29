@@ -14,7 +14,7 @@ interface Props {
 const { title, description, path, current } = Astro.props;
 const siteUrl = "https://journalingenred.vercel.app";
 const canonical = `${siteUrl}${path}`;
-const ogImage = `${siteUrl}/img/og-cover.png`;
+const ogImage = `${siteUrl}/img/og-cover.jpg`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -75,7 +75,7 @@ const structuredData = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&family=Public+Sans:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600;7..72,700&family=Public+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 

@@ -59,6 +59,8 @@ const socialPosts: SocialPost[] = [
       alt="Manos decorando un diario con encaje, botones y papelería sobre un escritorio de madera"
       loading="eager"
       fetchpriority="high"
+      widths={[480, 768, 1128, 1456]}
+      sizes="100vw"
       class="absolute inset-0 -z-20 h-full w-full object-cover"
     />
     <div class="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/75 to-ink/10"></div>
@@ -152,7 +154,14 @@ const socialPosts: SocialPost[] = [
         {
           socialPosts.map((post) => (
             <Card class="overflow-hidden">
-              <Image src={post.image} alt={post.title} loading="lazy" class="h-44 w-full object-cover" />
+              <Image
+                src={post.image}
+                alt={post.title}
+                loading="lazy"
+                widths={[360, 480, 700]}
+                sizes="(min-width: 768px) 33vw, 100vw"
+                class="h-44 w-full object-cover"
+              />
               <div class="p-5">
                 <h3 class="mb-2 flex items-center gap-2 text-base font-semibold text-ink">
                   <Icon name={post.icon} class="h-4 w-4 text-primary-text" />
