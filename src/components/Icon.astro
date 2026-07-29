@@ -8,6 +8,7 @@ const iconMap = {
   "angle-double-up": "fa6-solid:angles-up",
   "pen-nib": "fa6-solid:pen-nib",
   bars: "fa6-solid:bars",
+  xmark: "fa6-solid:xmark",
   envelope: "fa6-solid:envelope",
   user: "fa6-solid:user",
   check: "fa6-solid:check",
@@ -41,10 +42,11 @@ export type IconName = keyof typeof iconMap;
 interface Props {
   name: IconName;
   class?: string;
+  id?: string;
 }
 
-const { name, class: className } = Astro.props;
+const { name, class: className, id } = Astro.props;
 const resolved = iconMap[name];
 ---
 
-<AstroIcon name={resolved} class={className} aria-hidden="true" />
+<AstroIcon name={resolved} id={id} class={className} aria-hidden="true" />

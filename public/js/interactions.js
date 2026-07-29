@@ -16,9 +16,14 @@ if (backToTop) {
 
 const navToggle = document.getElementById("nav-toggle");
 const navMenu = document.getElementById("nav-menu");
+const navToggleIconOpen = document.getElementById("nav-toggle-icon-open");
+const navToggleIconClose = document.getElementById("nav-toggle-icon-close");
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
     const isOpen = navMenu.classList.toggle("hidden") === false;
     navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    navToggleIconOpen?.classList.toggle("hidden", isOpen);
+    navToggleIconClose?.classList.toggle("hidden", !isOpen);
   });
 }
