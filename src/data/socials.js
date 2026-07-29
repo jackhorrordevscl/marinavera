@@ -1,3 +1,6 @@
+export const whatsappHref =
+  "https://wa.me/56937062554?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20acompa%C3%B1amientos%20de%20journaling";
+
 export const socials = [
   {
     name: "Instagram",
