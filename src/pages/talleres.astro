@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout
+  title="Talleres | Journaling En Red"
+  description="Talleres grupales de journaling con enfoque psicosocial de Journaling En Red: espacios de encuentro, escritura y construcción colectiva. Próximamente."
+  path="/talleres.html"
+  current="talleres"
+>
+  <main class="mx-auto flex max-w-4xl flex-col gap-16 px-6 py-16 md:px-10">
+    <header class="mx-auto max-w-2xl space-y-4 text-center">
+      <h1 class="text-4xl font-bold text-ink md:text-5xl">Talleres</h1>
+      <p class="text-lg text-body">
+        Espacios grupales donde el journaling con enfoque psicosocial se vive en comunidad: escritura
+        compartida, encuentro y construcción colectiva de significados.
+      </p>
+    </header>
+
+    <section class="space-y-4 text-center">
+      <h2 class="text-2xl font-semibold text-ink">¿Qué son los talleres?</h2>
+      <p class="mx-auto max-w-2xl text-body">
+        Nuestros talleres son instancias grupales que utilizan el journaling como herramienta para favorecer
+        la participación, el apoyo mutuo y la reflexión colectiva. A diferencia de los acompañamientos
+        individuales, aquí el valor central está en el encuentro con otras personas: compartir vivencias,
+        escucharnos con respeto y construir juntos nuevos significados a partir de la escritura.
+      </p>
+      <p class="mx-auto max-w-2xl text-body">
+        Están pensados para personas, grupos y comunidades que buscan fortalecer sus vínculos y recursos
+        colectivos, siempre desde un enfoque psicoeducativo que no reemplaza procesos psicoterapéuticos.
+      </p>
+    </section>
+
+    <section class="paper-lines flex flex-col items-center gap-4 rounded-2xl border border-border bg-card p-10 text-center shadow-soft">
+      <div class="flex h-14 w-14 items-center justify-center rounded-full bg-primary-soft">
+        <Icon name="comments" class="h-7 w-7 text-primary-text" />
+      </div>
+      <h2 class="text-xl font-semibold text-ink">Próximamente</h2>
+      <p class="max-w-md text-body">
+        Estamos definiendo el contenido, las fechas y los cupos de nuestros próximos talleres. Muy pronto
+        compartiremos todos los detalles en este espacio.
+      </p>
+      <Button href="/contact.html">Contáctanos para más información</Button>
+    </section>
+  </main>
+</BaseLayout>

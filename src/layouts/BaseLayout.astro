@@ -8,7 +8,7 @@ interface Props {
   title: string;
   description: string;
   path: string;
-  current?: "index" | "about" | "class" | "contact";
+  current?: "index" | "about" | "class" | "talleres" | "contact";
 }
 
 const { title, description, path, current } = Astro.props;
@@ -19,11 +19,11 @@ const ogImage = `${siteUrl}/img/og-cover.png`;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Journaling Terapéutico",
+  name: "Journaling En Red",
   description: "Acompañamiento de journaling con enfoque psicológico guiado por Marina Vera.",
   url: siteUrl,
   image: ogImage,
-  email: "lic.ps.marinaverag@gmail.com",
+  email: "journalingenred@gmail.com",
   telephone: "+56937062554",
   areaServed: "CL",
   openingHoursSpecification: {

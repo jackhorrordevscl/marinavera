@@ -3,7 +3,7 @@ import Icon from "./Icon.astro";
 import Button from "./Button.astro";
 
 interface Props {
-  current?: "index" | "about" | "class" | "contact";
+  current?: "index" | "about" | "class" | "talleres" | "contact";
 }
 
 const { current } = Astro.props;
@@ -14,6 +14,7 @@ const links = [
   { id: "index", href: "/", label: "Inicio" },
   { id: "about", href: "/about.html", label: "Sobre Nosotros" },
   { id: "class", href: "/class.html", label: "Acompañamientos" },
+  { id: "talleres", href: "/talleres.html", label: "Talleres" },
   { id: "contact", href: "/contact.html", label: "Contáctenos" },
 ];
 ---
@@ -22,7 +23,7 @@ const links = [
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
     <a href="/" class="flex items-center gap-3">
       <img src="/img/logo.png" alt="" width="256" height="256" class="h-10 w-10 rounded-full object-cover" />
-      <span class="font-display text-lg font-semibold text-ink">Journaling Terapéutico</span>
+      <span class="font-display text-lg font-semibold text-ink">Journaling En Red</span>
     </a>
 
     <div class="hidden items-center gap-6 lg:flex">

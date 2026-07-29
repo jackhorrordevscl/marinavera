@@ -1,6 +1,6 @@
-# Journaling Terapéutico
+# Journaling En Red
 
-Sitio web de Marina Vera — journaling con enfoque psicológico. Landing de 4 páginas construida con [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com), desplegada en Vercel.
+Sitio web de Marina Vera — journaling con enfoque psicosocial. Landing construida con [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com), desplegada en Vercel.
 
 ## Stack
 

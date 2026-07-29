@@ -1,84 +1,84 @@
-import courseBasico from "../assets/course-basico.webp";
-import courseProfundo from "../assets/course-profundo.webp";
-import courseEspecifico from "../assets/course-especifico.webp";
+import courseIndividual from "../assets/course-profundo.webp";
 
 export const courses = [
   {
-    slug: "introduccion",
-    badge: "Básico",
+    slug: "acompanamiento-individual",
+    badge: "Individual",
     icon: "compass",
-    title: "Acompañamiento individual: Introducción al journaling con enfoque psicológico",
-    shortTitle: "Introducción al Journaling con enfoque psicológico",
-    cardImage: courseBasico,
-    summary:
-      "Aprende los fundamentos, estructura tus primeras sesiones y establece una práctica segura y efectiva.",
-    description:
-      "Es un curso de inicio para personas que quieren comenzar a usar el journaling como herramienta de acompañamiento emocional, ya sea porque nunca han escrito antes o porque lo han hecho de forma intuitiva y desean mayor claridad y sostén. El foco no está en “escribir bien”, sino en aprender a usar la escritura como espacio seguro de observación interna, sin exigencias ni sobreinterpretaciones. Este curso no reemplaza un proceso terapéutico, y si lo necesitas puedes contactarnos.",
+    title: "Acompañamiento Individual de Journaling Guiado",
+    shortTitle: "Acompañamiento Individual de Journaling Guiado",
+    subtitle: "Bienestar Emocional y Crecimiento Personal",
+    cardImage: courseIndividual,
+    summary: "Bienestar Emocional y Crecimiento Personal.",
+    description: [
+      "Descubre el journaling como una herramienta para comprender tus emociones, fortalecer tu bienestar y desarrollar recursos para afrontar los desafíos cotidianos.",
+      "Este programa consiste en 6 sesiones individuales personalizadas, guiadas por una psicóloga, donde la escritura se utiliza como una herramienta de reflexión, autoconocimiento y aprendizaje.",
+      "Cada encuentro integra psicoeducación, ejercicios prácticos de journaling y estrategias psicológicas basadas en evidencia, permitiéndote desarrollar habilidades para comprender mejor tu mundo emocional y construir una relación más amable contigo mismo(a).",
+    ],
+    disclaimer:
+      "Este programa no constituye un proceso de psicoterapia ni reemplaza un tratamiento en salud mental. Corresponde a un acompañamiento psicológico con enfoque psicoeducativo orientado al desarrollo de habilidades y bienestar emocional.",
     audience: [
-      "Personas que quieren iniciarse en el journaling con una base psicológica.",
-      "Personas que escriben, pero se sienten desordenadas o sin estructura.",
-      "Personas que buscan una herramienta de autocuidado complementaria a otros procesos.",
+      "Deseas utilizar el journaling con un propósito de bienestar y crecimiento personal.",
+      "Buscas comprender mejor tus emociones y desarrollar herramientas de autocuidado.",
+      "Experimentas estrés, preocupación o ansiedad cotidiana y quieres aprender estrategias prácticas para afrontarlas.",
+      "Quieres fortalecer tu autoestima, tu autoconcepto y tu relación contigo mismo(a).",
+      "Buscas incorporar la escritura como un hábito que favorezca tu bienestar psicológico.",
     ],
-    topics: [
-      "Qué es y qué no es el journaling terapéutico.",
-      "Cómo crear un espacio emocionalmente seguro para escribir.",
-      "Diferenciar pensamientos, emociones y sensaciones corporales en el journal.",
-      "Introducción a la autocompasión y el autoapoyo en la escritura.",
-      "Cómo integrar el journaling de forma realista y sostenible en la vida diaria.",
+    learnings: [
+      "Comprender el funcionamiento de las emociones.",
+      "Desarrollar estrategias de regulación emocional mediante la escritura.",
+      "Fortalecer la autoestima y el autoconcepto.",
+      "Incorporar herramientas para afrontar el estrés, la ansiedad cotidiana y la rumiación.",
+      "Desarrollar prácticas de autocuidado y autocompasión.",
+      "Integrar el journaling como una herramienta para el bienestar y el crecimiento personal.",
     ],
-    day: "Martes",
-    slots: ["08:30 - 09:30", "18:30 - 19:30", "19:30 - 20:30", "20:30 - 21:30"],
-  },
-  {
-    slug: "regulacion-emocional",
-    badge: "Profundo",
-    icon: "anchor",
-    title: "Acompañamiento individual: Journaling y Regulación Emocional",
-    shortTitle: "Journaling y Regulación Emocional",
-    cardImage: courseProfundo,
-    summary:
-      "El journaling como herramienta de regulación emocional y autoobservación más consciente.",
-    description:
-      "Es un curso de profundización para personas que ya escriben y desean usar el journaling como herramienta de regulación emocional y autoobservación más consciente. Aquí el foco está en cómo usar la escritura para contener emociones intensas, reconocer patrones emocionales y acompañarse en momentos de sobrecarga, sin forzar interpretaciones ni soluciones rápidas. Este curso no reemplaza un proceso terapéutico, y si lo necesitas puedes contactarnos.",
-    audience: [
-      "Personas que ya realizaron el Curso 1 o tienen experiencia básica en journaling.",
-      "Personas que usan la escritura para desahogarse, pero quieren más claridad y sostén.",
-      "Personas que buscan herramientas escritas para manejar estrés, cansancio emocional o rumiación.",
+    sessions: [
+      {
+        title: "Conociendo tu mundo emocional",
+        text: "Comprenderemos cómo funcionan las emociones, identificaremos tus principales necesidades y comenzaremos a utilizar el journaling como herramienta de reflexión.",
+      },
+      {
+        title: "Regulación emocional desde la escritura",
+        text: "Aprenderás estrategias para reconocer tus emociones, identificar desencadenantes y responder de manera más consciente mediante ejercicios de escritura guiada.",
+      },
+      {
+        title: "Autoestima y autoconcepto",
+        text: "Exploraremos la imagen que tienes de ti mismo(a), tus fortalezas y recursos personales para favorecer una relación más saludable contigo.",
+      },
+      {
+        title: "Comprendiendo la ansiedad",
+        text: "Conocerás cómo funciona la ansiedad desde una perspectiva psicológica y aprenderás herramientas de journaling para disminuir la rumiación y organizar tus pensamientos.",
+      },
+      {
+        title: "Autocuidado y bienestar",
+        text: "Diseñaremos estrategias de autocuidado adaptadas a tu realidad y construiremos hábitos que favorezcan tu bienestar cotidiano.",
+      },
+      {
+        title: "Integración y continuidad",
+        text: "Revisaremos los aprendizajes del proceso y elaboraremos un plan personalizado para mantener la práctica del journaling como herramienta de bienestar.",
+      },
     ],
-    topics: [
-      "Registro emocional más profundo en el journal.",
-      "Identificación de patrones emocionales repetitivos.",
-      "Escritura como herramienta de autorregulación (no solo descarga).",
-      "Estrategias escritas para momentos de sobrecarga emocional.",
-      "Cómo integrar el journaling de forma realista y sostenible en la vida diaria.",
+    includes: [
+      "6 sesiones individuales personalizadas.",
+      "Material psicoeducativo digital.",
+      "Ejercicios de journaling entre sesiones.",
+      "Plantillas y recursos descargables.",
+      "Plan personalizado para continuar la práctica al finalizar el acompañamiento.",
     ],
-    day: "Miércoles",
-    slots: ["09:00 - 10:00", "17:30 - 18:30", "18:30 - 19:30", "19:30 - 20:30"],
-  },
-  {
-    slug: "ansiedad",
-    badge: "Específico",
-    icon: "cloud",
-    title: "Acompañamiento individual: Journaling para Ansiedad",
-    shortTitle: "Journaling para Ansiedad",
-    cardImage: courseEspecifico,
-    summary:
-      "Acompañamiento de especialización para personas con ansiedad, rumiación o sobrecarga emocional que buscan regularse mediante journaling.",
-    description:
-      "Es un curso de especialización orientado a personas que experimentan ansiedad, rumiación mental, sobrecarga emocional o sensación de desborde, y que desean usar el journaling como una herramienta concreta de acompañamiento y regulación. El foco está en qué escribir cuando la mente no para, cuando el cuerpo está tenso o cuando cuesta sostener el día a día. Este curso no reemplaza un proceso terapéutico, y si lo necesitas puedes contactarnos.",
-    audience: [
-      "Personas que ya practican journaling y quieren aplicarlo a la ansiedad cotidiana.",
-      "Personas que se sienten saturadas mentalmente y buscan una herramienta accesible.",
-      "Personas que están en procesos terapéuticos y desean un recurso complementario.",
+    methodology: [
+      {
+        title: "Psicoeducación",
+        text: "Comprenderás conceptos psicológicos de manera clara y práctica.",
+      },
+      {
+        title: "Journaling guiado",
+        text: "Realizarás ejercicios de escritura diseñados para favorecer la reflexión y el autoconocimiento.",
+      },
+      {
+        title: "Plan de acción",
+        text: "Al finalizar cada encuentro contarás con herramientas concretas para integrar lo aprendido en tu vida cotidiana.",
+      },
     ],
-    topics: [
-      "Comprender cómo se manifiesta la ansiedad en pensamientos, emociones y cuerpo.",
-      "Ejercicios de journaling para reducir rumiación y ordenar la mente.",
-      "Escritura como recurso para bajar activación emocional.",
-      "Prácticas de autoapoyo y contención en momentos de ansiedad.",
-      "Cómo usar el journal como ancla cuando aparece el desborde.",
-    ],
-    day: "Viernes",
-    slots: ["15:30 - 16:30", "16:30 - 17:30", "18:00 - 19:00", "19:00 - 20:00"],
+    modality: "6 sesiones individuales personalizadas. Día y horario a coordinar contigo.",
   },
 ];
