@@ -26,4 +26,14 @@ if (navToggle && navMenu) {
     navToggleIconOpen?.classList.toggle("hidden", isOpen);
     navToggleIconClose?.classList.toggle("hidden", !isOpen);
   });
+
+  navMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.add("hidden");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Abrir menú");
+      navToggleIconOpen?.classList.remove("hidden");
+      navToggleIconClose?.classList.add("hidden");
+    });
+  });
 }

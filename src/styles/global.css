@@ -22,7 +22,6 @@
   --color-primary-text: #af1d46;
 
   --color-secondary: #f8e496;
-  --color-secondary-hover: #f5d866;
   --color-secondary-soft: #fcf3cf;
   --color-secondary-text: #786108;
 
@@ -34,15 +33,13 @@
    */
   --color-ink: #2a1b20;
   --color-body: #3d494c;
-  --color-muted: #6d797c;
   --color-surface: #f8f9fa;
   --color-card: #ffffff;
-  --color-field: #eef2f4;
   --color-border: #dce3e6;
   --color-success: #1d8a4e;
 
   /* Tipografía */
-  --font-display: "Literata", Georgia, serif;
+  --font-display: "Literata Variable", Georgia, serif;
   --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Radios (más generosos que el default de Tailwind, look "papelería") */

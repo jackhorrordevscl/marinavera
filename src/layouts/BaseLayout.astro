@@ -1,18 +1,31 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import type { NavCurrent } from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Icon from "../components/Icon.astro";
+import "@fontsource-variable/literata/opsz.css";
+import "@fontsource/public-sans/400.css";
+import "@fontsource/public-sans/600.css";
+import "@fontsource/public-sans/700.css";
 import "../styles/global.css";
+import {
+  siteEmail,
+  sitePhone,
+  siteAddressStreet,
+  siteAddressLocality,
+  siteAddressRegion,
+  siteAddressCountry,
+} from "../data/site.js";
 
 interface Props {
   title: string;
   description: string;
   path: string;
-  current?: "index" | "about" | "class" | "talleres" | "contact";
+  current?: NavCurrent;
 }
 
 const { title, description, path, current } = Astro.props;
-const siteUrl = "https://journalingenred.vercel.app";
+const siteUrl = Astro.site.origin;
 const canonical = `${siteUrl}${path}`;
 const ogImage = `${siteUrl}/img/og-cover.jpg`;
 
@@ -23,8 +36,15 @@ const structuredData = {
   description: "Acompañamiento de journaling con enfoque psicosocial.",
   url: siteUrl,
   image: ogImage,
-  email: "journalingenred@gmail.com",
-  telephone: "+56937062554",
+  email: siteEmail,
+  telephone: sitePhone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteAddressStreet,
+    addressLocality: siteAddressLocality,
+    addressRegion: siteAddressRegion,
+    addressCountry: siteAddressCountry,
+  },
   areaServed: "CL",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -70,14 +90,6 @@ const structuredData = {
     <link href="/img/logo.png" rel="icon" type="image/png" />
     <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
     <meta name="theme-color" content="#de3163" />
-
-    <!-- Fuentes web -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600;7..72,700&family=Public+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>

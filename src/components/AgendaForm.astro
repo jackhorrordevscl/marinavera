@@ -1,5 +1,7 @@
 ---
 import Button from "./Button.astro";
+import FormHoneypot from "./FormHoneypot.astro";
+import { formspreeEndpoint, graciasPath } from "../data/site.js";
 
 interface Course {
   title: string;
@@ -11,17 +13,16 @@ interface Props {
 }
 
 const { courses, heading = "Agenda un cupo" } = Astro.props;
+const graciasUrl = new URL(graciasPath, Astro.site).toString();
 ---
 
 <section id="agenda" class="paper-lines mx-auto max-w-2xl rounded-2xl bg-primary-soft p-8 shadow-soft md:p-14">
   <h2 class="mb-2 text-center text-2xl font-semibold text-ink md:text-3xl">{heading}</h2>
   <p class="mb-8 text-center text-sm text-body">Completa el formulario y te contactamos para coordinar tu primera sesión.</p>
-  <form method="POST" action="https://formspree.io/f/mgogryyq" class="space-y-5">
+  <form method="POST" action={formspreeEndpoint} class="space-y-5">
     <input type="hidden" name="_subject" value="Nueva solicitud de agenda — Journaling En Red" />
-    <input type="hidden" name="_next" value="https://journalingenred.vercel.app/gracias.html" />
-    <p class="hidden">
-      <label>No llenar si eres humano: <input name="_gotcha" tabindex="-1" autocomplete="off" /></label>
-    </p>
+    <input type="hidden" name="_next" value={graciasUrl} />
+    <FormHoneypot />
     <div>
       <label class="mb-1.5 block text-sm font-bold text-ink" for="agenda-name">Nombre completo</label>
       <input
@@ -57,6 +58,19 @@ const { courses, heading = "Agenda un cupo" } = Astro.props;
         <option value="" selected disabled>Elige el acompañamiento</option>
         {courses.map((course) => <option value={course.title}>{course.title}</option>)}
       </select>
+    </div>
+    <div class="flex items-start gap-2.5">
+      <input
+        id="agenda-consent"
+        name="consent"
+        type="checkbox"
+        required
+        class="mt-1 h-4 w-4 shrink-0 rounded border-border bg-card text-primary focus:ring-primary-text"
+      />
+      <label for="agenda-consent" class="text-sm text-body">
+        Acepto la <a href="/privacidad.html" class="text-primary-text underline">Política de Privacidad</a> y
+        el tratamiento de mis datos para coordinar esta agenda.
+      </label>
     </div>
     <Button type="submit" fullWidth>Agenda Ya!</Button>
   </form>

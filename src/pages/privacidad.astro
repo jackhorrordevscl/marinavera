@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteEmail } from "../data/site.js";
+---
+
+<BaseLayout
+  title="Política de Privacidad | Journaling En Red"
+  description="Cómo Journaling En Red recolecta, usa y protege tus datos personales al completar los formularios de contacto y agenda."
+  path="/privacidad.html"
+>
+  <main class="mx-auto flex max-w-3xl flex-col gap-10 px-6 py-16 md:px-10">
+    <div class="space-y-3">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary-text">Legal</p>
+      <h1 class="text-4xl font-bold text-ink md:text-5xl">Política de Privacidad</h1>
+      <p class="text-sm text-body">Última actualización: 30 de julio de 2026.</p>
+    </div>
+
+    <div class="space-y-8 text-body">
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">1. Quiénes tratan tus datos</h2>
+        <p>
+          Journaling En Red ("nosotros") trata los datos personales que nos entregas a través de los
+          formularios de este sitio para gestionar tu contacto y la agenda de acompañamientos. Puedes
+          escribirnos a <a href={`mailto:${siteEmail}`} class="text-primary-text underline">{siteEmail}</a> para
+          cualquier consulta sobre esta política.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">2. Qué datos recolectamos</h2>
+        <p>
+          Cuando completas el formulario de contacto o el de agenda recolectamos: nombre, correo
+          electrónico y, según el formulario, el mensaje que nos escribes o el acompañamiento que eliges.
+          No recolectamos datos sensibles, ni usamos cookies de seguimiento propias.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">3. Para qué usamos tus datos</h2>
+        <p>
+          Usamos estos datos exclusivamente para responder tu consulta, coordinar tu acompañamiento y
+          llevar el registro mínimo necesario de esa gestión. No vendemos ni cedemos tus datos a terceros
+          con fines comerciales.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">4. Con quién los compartimos</h2>
+        <p>
+          Los formularios de este sitio son procesados por <strong>Formspree</strong> (Formspree, Inc.,
+          Estados Unidos), que actúa como encargado del tratamiento para recibir y reenviarnos los
+          mensajes. El resto del sitio (tipografías, imágenes, íconos) se sirve directamente desde nuestro
+          hosting, sin solicitar recursos a otros servidores.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">5. Cuánto tiempo conservamos tus datos</h2>
+        <p>
+          Conservamos los datos de contacto y agenda mientras dure la gestión de tu consulta o
+          acompañamiento, y hasta un máximo de 24 meses desde el último contacto, salvo que nos pidas su
+          eliminación antes.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">6. Tus derechos</h2>
+        <p>
+          Puedes ejercer tus derechos de acceso, rectificación, cancelación, oposición y portabilidad
+          (derechos ARCOP) sobre tus datos personales escribiéndonos a{" "}
+          <a href={`mailto:${siteEmail}`} class="text-primary-text underline">{siteEmail}</a>. Vamos a responder tu
+          solicitud dentro de un plazo razonable.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">7. Marco legal</h2>
+        <p>
+          Este tratamiento se rige por la Ley N° 19.628 sobre Protección de la Vida Privada y, a partir de
+          su entrada en vigencia, por la Ley N° 21.719 que regula la protección y el tratamiento de datos
+          personales en Chile.
+        </p>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

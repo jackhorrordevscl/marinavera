@@ -1,4 +1,5 @@
 import courseIndividual from "../assets/course-profundo.webp";
+import { siteAddressName, siteAddressLine } from "./site.js";
 
 export const courses = [
   {
@@ -79,6 +80,7 @@ export const courses = [
         text: "Al finalizar cada encuentro contarás con herramientas concretas para integrar lo aprendido en tu vida cotidiana.",
       },
     ],
-    modality: "6 sesiones individuales personalizadas. Día y horario a coordinar contigo.",
+    modality: `6 sesiones individuales personalizadas, online o presenciales en ${siteAddressName} (${siteAddressLine}). Día, horario y modalidad a coordinar contigo.`,
+    priceLabel: "Valor de lanzamiento del Acompañamiento — $25.000",
   },
 ];

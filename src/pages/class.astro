@@ -4,6 +4,28 @@ import AgendaForm from "../components/AgendaForm.astro";
 import Icon from "../components/Icon.astro";
 import Button from "../components/Button.astro";
 import { courses } from "../data/courses.js";
+import { siteAddressName, siteAddressLine } from "../data/site.js";
+
+const faqs = [
+  {
+    question: "¿El acompañamiento reemplaza a un proceso psicoterapéutico?",
+    answer:
+      "No. Es un acompañamiento con enfoque psicoeducativo orientado al bienestar y al desarrollo de habilidades. Si estás atravesando un malestar intenso o sostenido, te recomendamos buscar atención psicológica especializada.",
+  },
+  {
+    question: "¿Las sesiones son presenciales o online?",
+    answer: `Puedes elegir la modalidad que prefieras: online, o presencial en ${siteAddressName} (${siteAddressLine}). Coordinamos el día, horario y modalidad contigo.`,
+  },
+  {
+    question: "¿Qué pasa si no puedo asistir a una sesión agendada?",
+    answer:
+      "Avísanos con la mayor anticipación posible por correo o WhatsApp y coordinamos un nuevo horario para reprogramarla.",
+  },
+  {
+    question: "¿Cómo se paga el acompañamiento?",
+    answer: "La forma de pago se coordina directamente por correo o WhatsApp al confirmar tu cupo.",
+  },
+];
 ---
 
 <BaseLayout
@@ -136,8 +158,25 @@ import { courses } from "../data/courses.js";
     </div>
 
     <p class="flex items-center justify-center gap-2 text-center text-lg font-bold text-ink">
-      <Icon name="money-bill" class="h-5 w-5" />Valor de lanzamiento del Acompañamiento — $25.000
+      <Icon name="money-bill" class="h-5 w-5" />{courses[0].priceLabel}
     </p>
+
+    <section class="mx-auto w-full max-w-3xl">
+      <h2 class="mb-8 text-center text-2xl font-semibold text-ink">Preguntas Frecuentes</h2>
+      <div class="flex flex-col gap-3">
+        {
+          faqs.map((faq) => (
+            <details class="group rounded-2xl border border-border bg-card p-5 shadow-soft">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink">
+                {faq.question}
+                <Icon name="angle-double-up" class="h-4 w-4 flex-shrink-0 rotate-180 text-primary-text transition-transform group-open:rotate-0" />
+              </summary>
+              <p class="mt-3 text-sm text-body">{faq.answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </section>
 
     <AgendaForm courses={courses} />
   </main>

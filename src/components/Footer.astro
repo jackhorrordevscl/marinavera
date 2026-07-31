@@ -1,6 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 import { socials, whatsappHref } from "../data/socials.js";
+import { siteEmail, sitePhoneDisplay, siteAddressName, siteAddressLine, siteMapsLinkUrl } from "../data/site.js";
 
 const year = new Date().getFullYear();
 ---
@@ -18,17 +19,28 @@ const year = new Date().getFullYear();
         es recomendable buscar atención psicológica especializada.
       </p>
       <p class="pt-2 text-xs text-white/70">© {year} Journaling En Red. Todos los derechos reservados.</p>
+      <a href="/privacidad.html" class="block text-xs text-white/60 transition hover:text-primary">Política de Privacidad</a>
+      <a href="/terminos.html" class="block text-xs text-white/60 transition hover:text-primary">Términos y Condiciones</a>
     </div>
 
     <div class="space-y-3">
       <h3 class="text-sm font-bold uppercase tracking-wide text-white">Contacto</h3>
-      <a href="mailto:journalingenred@gmail.com" class="flex items-center gap-2 text-sm text-white/80 transition hover:text-primary">
-        <Icon name="envelope" class="h-4 w-4" />journalingenred@gmail.com
+      <a href={`mailto:${siteEmail}`} class="flex items-center gap-2 text-sm text-white/80 transition hover:text-primary">
+        <Icon name="envelope" class="h-4 w-4" />{siteEmail}
       </a>
       <a href={whatsappHref} target="_blank" rel="noopener" class="flex items-center gap-2 text-sm text-white/80 transition hover:text-primary">
-        <Icon name="whatsapp" class="h-4 w-4" />+56 9 3706 2554
+        <Icon name="whatsapp" class="h-4 w-4" />{sitePhoneDisplay}
       </a>
       <p class="flex items-center gap-2 text-sm text-white/80"><Icon name="clock" class="h-4 w-4" />Lunes a Viernes, 10:00 - 17:00</p>
+      <a
+        href={siteMapsLinkUrl}
+        target="_blank"
+        rel="noopener"
+        class="flex items-start gap-2 text-sm text-white/80 transition hover:text-primary"
+      >
+        <Icon name="location-dot" class="mt-0.5 h-4 w-4 flex-shrink-0" />
+        <span>{siteAddressName} — {siteAddressLine}</span>
+      </a>
     </div>
 
     <div class="space-y-3">

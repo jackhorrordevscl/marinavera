@@ -3,7 +3,7 @@ import { Icon as AstroIcon } from "astro-icon/components";
 
 // Mapa de nombre semántico -> ícono real (fa6-solid / fa6-brands / fa6-regular vía Iconify).
 // Antes el sitio cargaba el paquete COMPLETO de Font Awesome (~7000 íconos) desde un CDN
-// externo para usar 23. Ahora cada ícono se inlinea como SVG en build, sin request externo.
+// externo para usar un puñado. Ahora cada ícono se inlinea como SVG en build, sin request externo.
 const iconMap = {
   "angle-double-up": "fa6-solid:angles-up",
   "pen-nib": "fa6-solid:pen-nib",
@@ -31,6 +31,7 @@ const iconMap = {
   youtube: "fa6-brands:youtube",
   "facebook-f": "fa6-brands:facebook-f",
   clock: "fa6-regular:clock",
+  "location-dot": "fa6-solid:location-dot",
 };
 
 export type IconName = keyof typeof iconMap;

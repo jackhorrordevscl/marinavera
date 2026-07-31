@@ -2,8 +2,10 @@
 import Icon from "./Icon.astro";
 import Button from "./Button.astro";
 
+export type NavCurrent = "index" | "about" | "class" | "talleres" | "contact";
+
 interface Props {
-  current?: "index" | "about" | "class" | "talleres" | "contact";
+  current?: NavCurrent;
 }
 
 const { current } = Astro.props;

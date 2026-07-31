@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteEmail, siteAddressName, siteAddressLine } from "../data/site.js";
+---
+
+<BaseLayout
+  title="Términos y Condiciones | Journaling En Red"
+  description="Condiciones de uso del sitio y de los acompañamientos de Journaling En Red."
+  path="/terminos.html"
+>
+  <main class="mx-auto flex max-w-3xl flex-col gap-10 px-6 py-16 md:px-10">
+    <div class="space-y-3">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary-text">Legal</p>
+      <h1 class="text-4xl font-bold text-ink md:text-5xl">Términos y Condiciones</h1>
+      <p class="text-sm text-body">Última actualización: 30 de julio de 2026.</p>
+    </div>
+
+    <div class="space-y-8 text-body">
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">1. Naturaleza del servicio</h2>
+        <p>
+          Journaling En Red ofrece acompañamientos y talleres de journaling con enfoque psicosocial. Estos
+          espacios promueven el bienestar, la reflexión y el apoyo mutuo, pero <strong>no reemplazan un
+          proceso psicoterapéutico</strong> ni el tratamiento con profesionales de la salud mental. Si
+          experimentas malestar intenso o sostenido, te recomendamos buscar atención psicológica
+          especializada.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">2. Cómo se agenda un cupo</h2>
+        <p>
+          El cupo se reserva completando el formulario de agenda del sitio. Nos contactamos por correo o
+          WhatsApp para coordinar la primera sesión, la modalidad (online o presencial) y confirmar los
+          detalles del acompañamiento elegido. Las sesiones presenciales se realizan en {siteAddressName}
+          ({siteAddressLine}).
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">3. Valores y forma de pago</h2>
+        <p>
+          El valor de cada acompañamiento se informa en la página correspondiente al momento de agendar. La
+          forma de pago se coordina de manera directa por correo o WhatsApp al confirmar el cupo.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">4. Cancelaciones y reprogramación</h2>
+        <p>
+          Si necesitas cancelar o reprogramar una sesión, avísanos con la mayor anticipación posible por
+          correo o WhatsApp para coordinar un nuevo horario.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">5. Uso del sitio</h2>
+        <p>
+          El contenido de este sitio (textos, imágenes, marca) pertenece a Journaling En Red y no puede
+          reproducirse con fines comerciales sin autorización previa.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">6. Datos personales</h2>
+        <p>
+          El tratamiento de tus datos personales al completar los formularios de este sitio se rige por
+          nuestra <a href="/privacidad.html" class="text-primary-text underline">Política de Privacidad</a>.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-semibold text-ink">7. Contacto</h2>
+        <p>
+          Ante cualquier consulta sobre estos términos, escríbenos a{" "}
+          <a href={`mailto:${siteEmail}`} class="text-primary-text underline">{siteEmail}</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
