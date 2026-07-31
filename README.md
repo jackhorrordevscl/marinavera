@@ -1,15 +1,69 @@
 # Journaling En Red
 
-Sitio web de Journaling En Red — journaling con enfoque psicosocial. Landing construida con [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com), desplegada en Vercel.
+**Sitio web de producción para un servicio de acompañamiento psicosocial**, construido con Astro y Tailwind CSS v4, desplegado en Vercel.
 
-## Stack
+[![Astro](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)](https://astro.build)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)](https://journalingenred.vercel.app)
 
-- **Astro** — genera HTML estático puro (cero JS por defecto). `astro.config.mjs` usa `build.format: "file"` para que las páginas salgan como `about.html`, `class.html`, `contact.html` en vez de subcarpetas.
-- **Tailwind CSS v4** — vía `@tailwindcss/vite`, configurado en `src/styles/global.css` (bloque `@theme`). No usa Bootstrap, jQuery ni ninguna librería del sitio original.
-- **astro-icon** — íconos como SVG inline (`@iconify-json/fa6-solid` / `fa6-brands` / `fa6-regular`), sin cargar la librería completa de Font Awesome desde un CDN. Ver sección "Íconos" más abajo.
-- **astro:assets** — imágenes de contenido optimizadas automáticamente en build. Ver sección "Imágenes".
-- **Formspree** — los 2 formularios (`contact`, `agenda`) envían a `https://formspree.io/f/mgogryyq` (mismo endpoint para ambos, diferenciados por `_subject`). Honeypot vía campo `_gotcha` (convención propia de Formspree, reemplaza al de Netlify), redirect post-envío vía `_next`. El CSP en `vercel.json` permite explícitamente `form-action` hacia `https://formspree.io` — si se cambia de proveedor hay que actualizar ese header también, si no el navegador bloquea el POST.
-- **Sin CMS** — el contenido vive directo en los archivos `.astro` y en `src/data/courses.js`. Nadie edita esto desde un panel; los cambios de contenido son vía código.
+🔗 **Demo en producción:** [journalingenred.vercel.app](https://journalingenred.vercel.app)
+
+![Preview del sitio](public/img/og-cover.jpg)
+
+---
+
+## Sobre el proyecto
+
+Journaling En Red es la landing page de un servicio real de acompañamiento psicológico mediante escritura terapéutica guiada (journaling), con sede física en Santiago de Chile. El sitio comunica un posicionamiento deliberadamente **psicosocial y no clínico** — un acompañamiento de bienestar, no una sustitución de psicoterapia — y sostiene esa distinción en cada página del contenido.
+
+El proyecto nació como un rediseño completo sobre una base existente (migrada de Netlify a Vercel) y evolucionó mediante **ciclos de auditoría técnica**: más de 90 hallazgos catalogados como issues en GitHub — bugs, accesibilidad, performance, SEO y cumplimiento legal — resueltos de forma incremental y verificada visualmente en cada entrega.
+
+## Funcionalidades
+
+- **Landing multi-página** — Inicio, Sobre Nosotros, Acompañamientos (con FAQ), Talleres, Contacto, más páginas legales.
+- **Formularios funcionales** — contacto y agenda de citas, con honeypot anti-spam y checkbox de consentimiento explícito para el tratamiento de datos.
+- **Ubicación física con mapa** — dirección de atención presencial embebida vía Google Maps, además de la modalidad online.
+- **Cumplimiento legal** — política de privacidad y términos y condiciones redactados conforme a la Ley 19.628 y la Ley 21.719 de protección de datos personales de Chile.
+- **SEO técnico completo** — sitemap, `robots.txt`, meta tags Open Graph / Twitter Card, datos estructurados JSON-LD (`schema.org/ProfessionalService`) con dirección postal, y verificación de propiedad en Google Search Console.
+- **Accesibilidad (WCAG AA)** — contraste de color verificado, targets táctiles ≥44px, navegación por teclado, `aria-*` en componentes interactivos.
+- **Rendimiento** — imágenes responsive generadas en build, fuentes autohospedadas (sin dependencias de Google Fonts), cero JavaScript de terceros, CSP estricto sin `unsafe-inline`.
+- **Responsive mobile-first** — verificado en los tres breakpoints (320px, tablet, desktop) con corrección de overflow y grids rotos.
+
+## Stack técnico
+
+| Tecnología | Uso en este proyecto |
+|---|---|
+| **[Astro](https://astro.build)** | Genera HTML estático puro — cero JavaScript por defecto. Elegido para maximizar performance en un sitio de contenido sin necesidad de interactividad compleja. |
+| **[Tailwind CSS v4](https://tailwindcss.com)** | Sistema de diseño con tokens propios (paleta de marca, tipografía, radios) definidos en `@theme`, sin dependencia de un framework de componentes. |
+| **[astro-icon](https://github.com/natemoo-re/astro-icon)** | Íconos SVG inline vía Iconify — reemplaza la carga completa de Font Awesome (~7000 íconos) por solo los que el sitio usa. |
+| **astro:assets** | Pipeline de imágenes: optimización automática, `srcset` responsive y hash de caché inmutable en build. |
+| **[Formspree](https://formspree.io)** | Backend de formularios sin servidor propio — mismo endpoint para contacto y agenda, diferenciado por asunto. |
+| **[@fontsource](https://fontsource.org)** | Tipografías (Literata + Public Sans) autohospedadas — elimina la transferencia de datos del visitante a Google y el round-trip de red externo. |
+| **Vercel** | Deploy automático por push, headers de seguridad (CSP, `X-Frame-Options`) y cache configurados en `vercel.json`. |
+
+## Arquitectura
+
+```
+src/
+  layouts/BaseLayout.astro   # <head> compartido: meta, OG, JSON-LD, fuentes, Navbar + Footer
+  components/                # Navbar, Footer, AgendaForm, FormHoneypot, Icon (wrapper de astro-icon)
+  data/                      # fuente única de verdad: cursos, testimonios, redes, datos de contacto
+  pages/                     # una ruta por página, sin enrutamiento dinámico
+  styles/global.css          # paleta, tipografía y tokens de Tailwind (@theme)
+  assets/                    # imágenes de contenido procesadas por astro:assets
+public/
+  img/                       # logo, favicon, og-cover — assets que necesitan URL estática
+  js/interactions.js         # JS vanilla mínimo (menú móvil, botón "volver arriba")
+```
+
+Toda la información de contacto (email, teléfono, dirección, endpoint de formularios) vive en **una sola fuente**, `src/data/site.js`, para evitar que un dato cambie en un lugar y quede desactualizado en otro.
+
+## Decisiones técnicas destacadas
+
+- **Migración de proveedor de formularios sin downtime**: el sitio original dependía de Netlify Forms; al migrar a Vercel se reemplazó por Formspree, ajustando el Content Security Policy (`form-action`) para no romper el envío por política de seguridad del navegador.
+- **Auditoría de cumplimiento normativo**: investigación activa de la Ley 21.719 (nueva ley chilena de protección de datos, vigente desde diciembre de 2026) para anticipar los requisitos legales antes de su entrada en vigencia, no reaccionar después.
+- **Verificación visual real, no solo build verde**: cada tanda de cambios se valida con capturas de pantalla automatizadas (Playwright) y revisión de errores de consola, además de que el build compile sin warnings.
+- **Disciplina de una sola fuente de verdad**: precios, datos de contacto y textos de honeypot centralizados para que un cambio de negocio (ej. un nuevo teléfono) se propague solo, sin buscar y reemplazar a mano.
 
 ## Desarrollo local
 
@@ -20,49 +74,10 @@ npm run build     # genera dist/
 npm run preview   # sirve dist/ localmente
 ```
 
-> Los formularios apuntan a Formspree (servicio externo) — el envío funciona igual en local que en producción, no depende de un backend propio.
+Los formularios apuntan a Formspree (servicio externo), así que funcionan igual en local que en producción — no requieren backend propio.
 
-## Estructura
+## Licencia y créditos
 
-```
-src/
-  layouts/BaseLayout.astro   # <head> compartido (meta/OG/favicon/fuentes), Navbar+Footer
-  components/                # Navbar, Footer, AgendaForm, Icon (wrapper de astro-icon)
-  data/courses.js            # fuente única de verdad de los 3 acompañamientos
-  pages/                     # index.astro, about.astro, class.astro, contact.astro, 404.astro
-  styles/global.css          # paleta + tipografía + tokens de Tailwind (@theme)
-  assets/                    # imágenes de contenido (procesadas por astro:assets)
-public/
-  img/                       # solo logo.png y og-cover.png (favicon/OG, no pasan por el pipeline)
-  js/interactions.js         # JS vanilla (back-to-top, toggle del menú mobile) — sin jQuery
-```
+Proyecto comercial desarrollado para un cliente real. Código fuente disponible con fines de portafolio técnico.
 
-## Contenido de los acompañamientos
-
-`src/data/courses.js` es la única fuente de datos para los 3 programas (título, descripción, audiencia, temas, día/horarios). Se consume desde `index.astro` (tarjetas resumen + `<select>` del formulario) y `class.astro` (detalle completo). **No duplicar esta info a mano en los `.astro`** — si hay que cambiar un horario o un precio, se edita ahí y se propaga solo.
-
-## Imágenes
-
-Hay dos categorías, no se mezclan:
-
-- **`src/assets/`** — imágenes que se renderizan dentro de una página (hero, cards de curso, foto de about, posts de redes). Se importan como módulo ES y se renderizan con `<Image />` de `astro:assets`, que optimiza el formato, infiere `width`/`height` automáticamente (evita layout shift) y genera un nombre con hash para cache inmutable. Para agregar una imagen nueva: ponerla en `src/assets/`, importarla (`import miImagen from "../assets/nombre.jpg"`) y pasarla a `<Image src={miImagen} alt="..." />`.
-- **`public/img/`** — solo `logo.png` (favicon + navbar + fuente del OG) y `og-cover.png` (imagen de preview social). Estas necesitan una URL estática simple y no pasan por el pipeline de Astro. No agregar imágenes de contenido acá.
-
-Antes de subir una imagen nueva a `src/assets/`, comprimirla igual (`npx sharp-cli -i original.png -o carpeta -f webp -q 82`) — Astro la va a optimizar más en el build, pero no hace magia si el original pesa 5MB.
-
-## Íconos
-
-Los íconos son SVG inline vía [astro-icon](https://github.com/natemoo-re/astro-icon), no clases de Font Awesome. Para usar uno: `<Icon name="pen-nib" class="h-4 w-4" />` (ver `src/components/Icon.astro`). Si el ícono que necesitás no está en el mapa `iconMap` de ese archivo, hay que agregarlo ahí primero — buscar el nombre real en [Iconify Fa6](https://icon-sets.iconify.design/fa6-solid/) (o `fa6-brands`/`fa6-regular`) y sumarlo al mapa.
-
-## Paleta de marca
-
-- Primary: `#de3163` (rosa-frutilla) / soft `#fadbd8`
-- Secondary: `#f8e496` (dorado pastel, derivado de `#fcf3cf`) / soft `#fcf3cf`
-
-Definidos en `src/styles/global.css` (`@theme`), junto con las variantes `-text` (más oscuras, pensadas para texto/íconos legibles sobre blanco). Confirmada por la clienta.
-
-## Deploy
-
-`vercel.json` define el build (`npm run build` → publica `dist/`), headers de seguridad (CSP estricto, sin `unsafe-inline`) y cache. El deploy es automático en cada push a la rama conectada en el dashboard de Vercel.
-
-`site` en `astro.config.mjs` (usado para canonical/OG/sitemap) y las URLs en `public/sitemap.xml` / `public/robots.txt` apuntan a `https://journalingenred.vercel.app`.
+Desarrollado por [**Juan José Martinez**](https://github.com/jackhorrordevscl).
